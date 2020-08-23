@@ -19,15 +19,13 @@ file_put_contents($name, $data);
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body  style="background-color:grey;"> 
-  <?php include 'consent.php';?>
+    <?php include_once 'include/consent.php';?>
   </body>
   <footer>
-  <script src="js/start-experiment.js"></script>
     <script src="js/jquery-git.js"></script>
-    <script src="js/consent-load.js"></script>
-    <script src="js/save-data.js"></script>
-    <script src="variables.js"></script>
-    <script src="timeline.js"></script>
-    <script src="main.js"></script>
+    <script src="exp/fn.js"></script>
+    <script src="exp/var.js"></script>
+    <script src="exp/timeline.js"></script>
+    <script src="exp/main.js"></script>
   </footer>
 </html>
