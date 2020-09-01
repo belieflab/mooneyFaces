@@ -10,7 +10,7 @@ library(tidyverse)
 # Searches directory for all data files (DOUBLE-CHECK THESE FOR YOU COMPUTER)
 ### For PC
 #setwd("C:/xampp/htdocs/mooneyFaces/data")
-setwd("data")
+setwd("./data")
 file_list <- list.files(path="C:/xampp/htdocs/mooneyFaces/data", pattern = ".csv$")
 ### For Mac
 #setwd("~/.bitnami/stackman/machines/xampp/volumes/root/htdocs/mooneyFaces/data")
