@@ -3,15 +3,24 @@
 # Author: Trevor Williams (tfwillia@buffalo.edu)
 
 
+
+# STOP! If you did not open this as a project, do so now.
+
+
+
 # Load necessary packages
+# need tidyverse, install.packages(tidyverse)
+# if install fails, add first install.packages(httr)
+
 library(tidyverse)
 
 
 # Searches directory for all data files (DOUBLE-CHECK THESE FOR YOU COMPUTER)
 ### For PC
 #setwd("C:/xampp/htdocs/mooneyFaces/data")
-setwd("./data")
-file_list <- list.files(path="C:/xampp/htdocs/mooneyFaces/data", pattern = ".csv$")
+#setwd("./data")
+file_list <- list.files(path=paste0(getwd(), '/data'), pattern = ".csv$")
+
 ### For Mac
 #setwd("~/.bitnami/stackman/machines/xampp/volumes/root/htdocs/mooneyFaces/data")
 #file_list <- list.files(path="~/.bitnami/stackman/machines/xampp/volumes/root/htdocs/mooneyFaces/data",pattern = ".csv$")
@@ -69,9 +78,10 @@ ld <- rbind(ld, temp_data)
 
  
 # write out processed files
-  write.csv(wide, file = "C:/xampp/htdocs/mooneyFaces/export/mooney_data.csv")
+  # need to add time and date
+  write.csv(wide, file = paste0(getwd(),'/export/mooney_data',".csv"))
   
-
+  
 
 
 
