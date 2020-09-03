@@ -1,36 +1,32 @@
 
 # Title: Mooney Faces Task Cleaning & Scoring Script
-# Author: Trevor Williams (tfwillia@buffalo.edu)
+# Author: Trevor Williams (trevor.williams@northwestern.edu)
 
 
 
-# STOP! If you did not open this as a project, do so now.
+# STOP! If you did not open this as a project, do so NOW.
+### (1) Open new project, select the Mooney Faces folder, click "open"
+### (2) Open this script from the script folder
 
 
 
 # Load necessary packages
-# need tidyverse, install.packages(tidyverse)
-# if install fails, add first install.packages(httr)
+### need tidyverse, install.packages(tidyverse)
+### if tidyverse install fails, first install.packages(httr) and try again
 
 library(tidyverse)
 
 
-# Searches directory for all data files (DOUBLE-CHECK THESE FOR YOU COMPUTER)
-### For PC
-#setwd("C:/xampp/htdocs/mooneyFaces/data")
-#setwd("./data")
+# Searches directory for all data files
+### Note: won't work unless using R project open to "mooneyFaces" folder
 file_list <- list.files(path=paste0(getwd(), '/data'), pattern = ".csv$")
-
-### For Mac
-#setwd("~/.bitnami/stackman/machines/xampp/volumes/root/htdocs/mooneyFaces/data")
-#file_list <- list.files(path="~/.bitnami/stackman/machines/xampp/volumes/root/htdocs/mooneyFaces/data",pattern = ".csv$")
 
 
 # Imports and scores data
 ld <- data.frame()
 for (i in 1:length(file_list)){
   ### reads each individual data file
-  temp_data <- read.csv(file_list[i])   
+  temp_data <- read.csv(paste0(getwd(), '/data/',file_list[i]))   
   ### creates participant ID
   temp_data$ID <- sapply(strsplit(gsub(".csv", "", file_list[i]), "_"), function(x){x[2]}) 
   ### creates initial variables
@@ -51,10 +47,10 @@ ld <- rbind(ld, temp_data)
 
 
 # Creates wide dataset for output
-  ### creates stimulus ID
+### creates stimulus ID
   ld$string <- gsub(".jpg","",ld$stimulus) 
   ld$stimid <- substring(ld$string,regexpr("bitmap",ld$string)+6)
-  ### remove unnecessary rows and columns
+### remove unnecessary rows and columns
   ld$test_part[ld$test_part==''] <- NA
   ld$remove <- ifelse(is.na(ld$test_part),1,ifelse(ld$test_part=="fixation",1,0))
   drops <- c("ld$key_press","trial_type","time_elapse",
@@ -62,27 +58,22 @@ ld <- rbind(ld, temp_data)
             "o_corr","i_corr","o_err","i_err","remove","stimulus","key_press",
             "trial_index","test_part","time_elapsed","string")
   clean <- ld[ld$remove==0,!(names(ld) %in% drops)]
-  ### fixes reaction time
+### fixes reaction time
   clean$rt <- as.numeric(clean$rt)
   clean$rt <- round(clean$rt,digits=2)
-  ### sorts by ID and stimid
+### sorts by ID and stimid
   clean$stimid[clean$stimid=="46.3.1"] <- "46.31"
   clean$ID <- as.numeric(clean$ID)
   clean$stimid <- as.numeric(clean$stimid)
   sorted <- clean[order(clean$ID,clean$stimid),]
-  ### creates wide data
-  
+### creates wide data
   names <- c("ID", "orig_corr_tot", "invt_corr_tot","orig_err_tot",
   "invt_err_tot", "orig_corr_pct", "invt_corr_pct")
   wide <-reshape(sorted,timevar="stimid",idvar=names,direction = "wide")
 
  
-# write out processed files
-  # need to add time and date
-  write.csv(wide, file = paste0(getwd(),'/export/mooney_data',".csv"))
+# writes out processed file for export folder
+### creates unique file name based on time & date in "UTC"
+  write.csv(wide, file = paste0(getwd(),'/output/mooney_data_',
+            gsub(":",".",lubridate::with_tz(Sys.time(), "UTC")),".csv"))
   
-  
-
-
-
-
