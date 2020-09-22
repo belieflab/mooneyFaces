@@ -35,6 +35,14 @@ let first_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
+    data.subjectKey = 'GUID';
+    data.src_subject_id = workerID;
+    data.site = siteNumber;
+    data.interview_date = 'must be formatted exactly thusly: MM/DD/YYYY';
+    data.session = '??';
+    data.sex = '??';
+    data.sample_group = '?? maybe 1=Clinical; 2=Healthy control';
+    data.interview_age = 'integer number of months';
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response); 
   }
@@ -49,6 +57,14 @@ let second_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
+    data.subjectKey = 'GUID';
+    data.src_subject_id = workerID;
+    data.site = siteNumber;
+    data.interview_date = 'must be formatted exactly thusly: MM/DD/YYYY';
+    data.session = '??';
+    data.sex = '??';
+    data.sample_group = '?? maybe 1=Clinical; 2=Healthy control';
+    data.interview_age = 'integer number of months';
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
   }
