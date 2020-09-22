@@ -77,8 +77,8 @@ let fixation = {
 
 let breaking = {
   type: 'html-keyboard-response',
-  stimulus: '<h2 style="color:white;">You are now on a halfway break.<h2>'+
-  '<p>Press the spacebar when you are ready to continue.</p>',
+  stimulus: '<h2 style="color:white;">You are now on a halfway break.</h2>'+
+  '<p style="color:white;">Press the spacebar when you are ready to continue.</p>',
   choices: [32],
   // trial_duration: 30000
 }
