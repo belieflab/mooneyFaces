@@ -4,8 +4,8 @@ let timeline = [];
 /* define welcome message trial */
 let welcome = {
   type: "html-keyboard-response",
-  stimulus: '<h1 style="color:white;">Welcome to the experiment!<h1>'+
-  '<p>Press any key to begin.</p>'
+  stimulus: '<h1 style="color:white;">Welcome to the experiment!</h1>'+
+  '<p style="color:white;">Press any key to begin.</p>'
 };
 
 
