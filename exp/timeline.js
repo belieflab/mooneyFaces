@@ -4,16 +4,17 @@ let timeline = [];
 /* define welcome message trial */
 let welcome = {
   type: "html-keyboard-response",
-  stimulus: '<p style="color:white;">Welcome to the experiment! Press any key to begin.</p>'
+  stimulus: '<h1 style="color:white;">Welcome to the experiment!<h1>'+
+  '<p>Press any key to begin.</p>'
 };
 
 
 /* define instructions trial */
 let instructions_1 = {
   type: "html-keyboard-response",
-  stimulus: '<p style="color:white;">At the begning of each trial, you will see a black and white image.</p>' +
-    '<p style="color:white;">If you believe the image <strong>is a face</strong>, please press the <strong>1</strong> key on your keyboard.</p>' +
-    '<p style="color:white;">If you believe the image <strong>is not a face</strong>, please press the <strong>0</strong> key on your keyboard.</p>' +
+  stimulus: '<h2 style="color:white;">At the begning of each trial, you will see a black and white image.</h2>' +
+    '<h3 style="color:white;">If you believe the image <strong>is a face</strong>, please press the <strong>1</strong> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the image <strong>is not a face</strong>, please press the <strong>0</strong> key on your keyboard.</h3>' +
     '<p style="color:white;">Press either response keys to continue.</p>',
   choices: ['1', '0'],
 };
@@ -21,7 +22,7 @@ let instructions_1 = {
 
 let instructions_2 = {
   type: "html-keyboard-response",
-  stimulus: '<p style="color:white;">This experiment will take approximately 8 minutes with a break in between.</p>' +
+  stimulus: '<h2 style="color:white;">If you do not respond within 5 seconds, the next picture will be displayed.</h2>' +
       '<p style="color:white;">Press the spacebar when you are ready to begin the experiment.</p>',
   choices: [32],
 };
@@ -76,14 +77,15 @@ let fixation = {
 
 let breaking = {
   type: 'html-keyboard-response',
-  stimulus: '<p style="color:white;">You may rest for a up to a 30 second break.<br><br>Otherwise, press the spacebar to continue immediately.</p>',
+  stimulus: '<h2 style="color:white;">You are now on a halfway break.<h2>'+
+  '<p>Press the spacebar when you are ready to continue.</p>',
   choices: [32],
-  trial_duration: 30000
+  // trial_duration: 30000
 }
 
 let completion= {
   type: "html-keyboard-response",
-  stimulus: '<p style="color:white;">You have now completed the task.</p> ' +
+  stimulus: '<h2 style="color:white;">You have now completed the task.</h2> ' +
       '<p style="color:white;">Thank you!</p> ',
   choices: jsPsych.NO_KEYS,
   trial_duration: 5000
