@@ -13,8 +13,8 @@ let welcome = {
 let instructions_1 = {
   type: "html-keyboard-response",
   stimulus: '<h2 style="color:white;">At the begning of each trial, you will see a black and white image.</h2>' +
-    '<h3 style="color:white;">If you believe the image <strong>is a face</strong>, please press the <strong>1</strong> key on your keyboard.</h3>' +
-    '<h3 style="color:white;">If you believe the image <strong>is not a face</strong>, please press the <strong>0</strong> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the image <u>is a face</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the image <u>is not a face</u>, please press the <u>0</u> key on your keyboard.</h3>' +
     '<p style="color:white;">Press either response keys to continue.</p>',
   choices: ['1', '0'],
 };
