@@ -42,10 +42,19 @@ let first_half = {
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
-    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
-    data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response); 
+    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
+    // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
+      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
+      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    } else {
+      data.correct = '';
+    }
   }
 }
+
+
 
 let second_half = {
   type: "image-keyboard-response",
@@ -63,7 +72,14 @@ let second_half = {
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
-    data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
+      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
+      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    } else {
+      data.correct = '';
+    }
   }
 }
 
