@@ -1,2 +1,2 @@
 MooneyFaces,,,,,,,,,,,,
-subjectkey,src_subject_id,interview_date,interview_age,sex,stim_id,trial,test_part,rt,response_face,correct,response_age,response_sex
+subjectkey,src_subject_id,interview_date,interview_age,sex,stim_id,trial,test_part,rt,time_elapsed,response_face,response_age,response_sex,correct_face,
