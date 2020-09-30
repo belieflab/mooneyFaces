@@ -12,7 +12,7 @@ let welcome = {
 /* define instructions trial */
 let instructions_1 = {
   type: "html-keyboard-response",
-  stimulus: '<h2 style="color:white;">At the begning of each trial, you will see a black and white image.</h2>' +
+  stimulus: '<h2 style="color:white;">At the begining of each trial, you will see a black and white image.</h2>' +
     '<h3 style="color:white;">If you believe the image <u>is a face</u>, please press the <u>1</u> key on your keyboard.</h3>' +
     '<h3 style="color:white;">If you believe the image <u>is not a face</u>, please press the <u>0</u> key on your keyboard.</h3>' +
     '<p style="color:white;">Press either response keys to continue.</p>',
@@ -46,11 +46,11 @@ let first_half = {
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else {
-      data.correct = '';
+      data.correct_face = '';
     }
   }
 }
@@ -76,11 +76,11 @@ let second_half = {
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else {
-      data.correct = '';
+      data.correct_face = '';
     }
   }
 }
