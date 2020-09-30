@@ -1,4 +1,3 @@
-// let workerId = prompt( 'Enter SubID' );
 
 let experimentIterator = 1;
 
