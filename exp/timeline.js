@@ -38,7 +38,6 @@ let first_half = {
   on_finish: function(data){
     data.subjectKey = 'GUID';
     data.src_subject_id = workerId;
-    data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
@@ -69,7 +68,6 @@ let second_half = {
   on_finish: function(data){
     data.subjectKey = 'GUID';
     data.src_subject_id = workerId;
-    data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
