@@ -18,10 +18,10 @@ for (let i = 0; i < inverted.length ; i++){
 
 let full_stim = [];
   for (let i = 0; i < original.length ; i++){
-    full_stim.push({stimulus: original_stimuli[i], data: {stimulus: original[i], stimulus: original[i]+".jpg", test_part: 'original', correct_response: '1', incorrect_response: '0'}},)
+    full_stim.push({stimulus: original_stimuli[i], data: {stimulus: original[i], stim: original[i]+".jpg", test_part: 'original', correct_response: '1', incorrect_response: '0'}},)
   }
   for (let i = 0; i < inverted.length ; i++){
-    full_stim.push({stimulus: inverted_stimuli[i], data: {stimulus: inverted[i], stimulus: inverted[i]+".jpg", test_part: 'inverted', correct_response: '0', incorrect_response: '1'}},)
+    full_stim.push({stimulus: inverted_stimuli[i], data: {stimulus: inverted[i], stim: inverted[i]+".jpg", test_part: 'inverted', correct_response: '0', incorrect_response: '1'}},)
   }
 
 let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled array no repeats
