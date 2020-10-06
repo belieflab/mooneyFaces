@@ -36,7 +36,7 @@ let first_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subjectKey = 'GUID';
+    data.subject_key = 'GUID';
     data.src_subject_id = workerId;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
@@ -76,11 +76,11 @@ let second_half = {
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else {
-      data.correct_face = '';
+      data.accuracy_face = '';
     }
   }
 }
@@ -101,14 +101,13 @@ let breaking = {
   // trial_duration: 30000
 }
 
-let completion= {
+let completion = {
   type: "html-keyboard-response",
-  stimulus: '<h2 style="color:white;">You have now completed the task.</h2> ' +
-      '<p style="color:white;">Thank you!</p> ',
+  stimulus: "<p style='color:white;'>You have completed this task. Please wait for the experimenter to continue.</p>"+
+  "<p style='color:white;'>Data Saving...Do not close this window until the text dissapears.”</p>",
   choices: jsPsych.NO_KEYS,
-  trial_duration: 5000
+  trial_duration: 10000,
 };
-
 
 
 
