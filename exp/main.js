@@ -28,7 +28,8 @@ timeline.push(procedureInstructions)
 timeline.push(first_procedure) //Object oriented.
 timeline.push(rest);
 timeline.push(second_procedure);
-timeline.push(completion);
+timeline.push(save_data);
+timeline.push(end);
 
 
 
