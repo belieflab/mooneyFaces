@@ -19,7 +19,7 @@ file_put_contents($name, $data);
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
-  <body  style="background-color:grey;"> 
+  <body onbeforeunload="return areYouSure()" style="background-color:grey;"> 
     <?php include_once 'include/intake.php';?>
   </body>
   <footer>
@@ -27,6 +27,5 @@ file_put_contents($name, $data);
     <script src="exp/fn.js"></script>
     <script src="exp/var.js"></script>
     <script src="exp/timeline.js"></script>
-    <!-- <script src="exp/main.js"></script> -->
   </footer>
 </html>
