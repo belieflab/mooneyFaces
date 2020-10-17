@@ -19,7 +19,7 @@ file_put_contents($name, $data);
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
-  <body onbeforeunload="return areYouSure()" style="background-color:grey;"> 
+  <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;"> 
     <?php include_once 'include/intake.php';?>
   </body>
   <footer>
