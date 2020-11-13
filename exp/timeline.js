@@ -133,8 +133,8 @@ let end = {
   stimulus:   "<p>Thank you!</p>"+
   "<p>You have successfully completed the experiment and your data has been saved.</p>"+
   "<p>To leave feedback on this task, please click the following link:</p>"+
-  "<p><a href='https://omnibus.sh/eCRFs/feedback/mooneyfaces.php'>Leave Task Feedback!</a></p>"+
-      // "<p>Please wait for the experimenter to continue.</p>"+
+  "<p style='color:white;'><a href="+feedbackLink+">Leave Task Feedback!</a></p>"+
+  // "<p>Please wait for the experimenter to continue.</p>"+
   "<p>You may now close the expriment window at anytime.</p>",
   choices: jsPsych.NO_KEYS,
   trial_duration: 60000,

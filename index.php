@@ -5,6 +5,7 @@ $name = "data/".$post_data['filename'].".csv";
 $data = $post_data['filedata'];
 // write the file to disk
 file_put_contents($name, $data);
+$studyId = $_GET["studyId"];
 ?>
 
 
@@ -26,6 +27,8 @@ file_put_contents($name, $data);
     <script src="js/jquery-git.js"></script>
     <script src="exp/fn.js"></script>
     <script src="exp/var.js"></script>
-    <script src="exp/timeline.js"></script>
+    <script type="text/javascript">
+    let feedbackLink = "https://omnibus.sh/eCRFs/feedback/tasks/mooney.php?studyId=<?php echo $studyId?>";
+    </script>
   </footer>
 </html>
