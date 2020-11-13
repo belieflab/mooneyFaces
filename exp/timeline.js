@@ -22,7 +22,7 @@ let instructions_1 = {
 
 let instructions_2 = {
   type: "html-keyboard-response",
-  stimulus: '<h2 style="color:white;">If you do not respond within 5 seconds, the next picture will be displayed.</h2>' +
+  stimulus: '<h2 style="color:white;">Please respond as quickly as possible while maintaining a high level of confidence in your choice.</h2>' +
       '<p style="color:white;">Press the spacebar when you are ready to begin the experiment.</p>',
   choices: [32],
 };
