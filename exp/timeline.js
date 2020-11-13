@@ -5,7 +5,7 @@ let timeline = [];
 let welcome = {
   type: "html-keyboard-response",
   stimulus: '<h2 style="color:white;">Welcome to the experiment!</h2>'+
-  '<p style="color:white;">Press any key to begin.</p>'
+  '<p style="color:white;"><i>Press any key to begin.</i></p>'
 };
 
 
@@ -15,7 +15,7 @@ let instructions_1 = {
   stimulus: '<h3 style="color:white;">At the begining of each trial, you will see a black and white image.</h3>' +
     '<h3 style="color:white;">If you believe the image is a <u>face</u>, please press the <u>1</u> key on your keyboard.</h3>' +
     '<h3 style="color:white;">If you believe the image is <u>not a face</u>, please press the <u>0</u> key on your keyboard.</h3>' +
-    '<p style="color:white;">Press either response keys to continue.</p>',
+    '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
   choices: ['1', '0'],
 };
 
@@ -23,7 +23,7 @@ let instructions_1 = {
 let instructions_2 = {
   type: "html-keyboard-response",
   stimulus: '<h3 style="color:white;">Please respond as quickly as possible while maintaining a high level of confidence in your choice.</h3>' +
-      '<p style="color:white;">Press the spacebar when you are ready to begin the experiment.</p>',
+      '<p style="color:white;"><i>Press the spacebar when you are ready to begin the experiment.<i></p>',
   choices: [32],
 };
 
@@ -126,7 +126,7 @@ let fixation = {
 let breaking = {
   type: 'html-keyboard-response',
   stimulus: '<h3 style="color:white;">You are now on a halfway break.</h3>'+
-  '<p style="color:white;">Press the spacebar when you are ready to continue.</p>',
+  '<p style="color:white;"><i>Press the spacebar when you are ready to continue.</i></p>',
   choices: [32],
   // trial_duration: 30000
 }
@@ -165,7 +165,7 @@ let end = {
   "<p style='color:white'>To leave feedback on this task, please click the following link:</p>"+
   "<p style='color:white;'><a href="+feedbackLink+">Leave Task Feedback!</a></p>"+
   // "<p>Please wait for the experimenter to continue.</p>"+
-  "<p style='color:white'>You may now close the expriment window at anytime.</p>",
+  "<p style='color:white'><i>You may now close the expriment window at anytime.</i></p>",
   choices: jsPsych.NO_KEYS,
 };
 
