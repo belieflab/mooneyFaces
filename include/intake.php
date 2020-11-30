@@ -25,6 +25,10 @@
     <form action="<?php echo SIGNUP_VIEW ?>/post/intakeadd.php" method="post">
     <p><b>Subject ID Number:</b></p>
     <input required id="subjectid" type="text" name="consent_id" plattern="\d*" minlength="4" maxlength="4">
+    
+    <!-- GUID -->
+    <input required type="hidden" id="guid" name="guid" value="<?php echo $guid ?>">
+
     </form>
     <!-- <button onclick="submitIntake()">submit subjectid</button> -->
     <p><b>Date of Birth:</b></p>
@@ -73,7 +77,7 @@
   </label>
 </form>
 <br> -->
-<button id="submitButton" class="loadMain" onclick="validateSite(), submitIntake(), ageFinder(), validateSex(), validateHandedness(), validateBrightness()" type="button">submit</button>
+<button id="submitButton" class="loadMain" onclick="validateSite(), submitIntake(), guidBuilder(), ageFinder(), validateSex(), validateHandedness(), validateBrightness()" type="button">submit</button>
 </div>
 <div id="validation" style="display: none">
     <br>
@@ -87,8 +91,7 @@
 </div>
 <script type="text/javascript" src="//code.jquery.com/jquery-git.js"></script>
 <script>$("button.loadMain").click(function(){
-      $.getScript("exp/timeline.js"); 
-    $.getScript("exp/main.js");
+      $.getScript("exp/timeline.js");
   }); </script>
 <script>
 $("button.noCursor").click(function(){

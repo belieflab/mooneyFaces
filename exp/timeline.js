@@ -49,7 +49,7 @@ let first_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subject_key = 'GUID';
+    data.subject_key = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
@@ -94,7 +94,7 @@ let second_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subjectKey = 'GUID';
+    data.subjectKey = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
