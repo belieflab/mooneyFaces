@@ -56,7 +56,7 @@ let first_half = {
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
     data.handedness = handedness;
-    data.trial = experimentIterator;
+    data.index = experimentIterator;
     experimentIterator++;
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
@@ -100,7 +100,7 @@ let second_half = {
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
-    data.trial = experimentIterator;
+    data.index = experimentIterator;
     data.handedness = handedness;
     experimentIterator++;
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
