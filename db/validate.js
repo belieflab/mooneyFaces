@@ -44,17 +44,17 @@ function validateBrightness() {
     }
 }
 
-function validateHeadphones() {
-    if (document.getElementById("headphones").checked === false) {
-        alert("Please confirm your headphones are plugged in.");
-    }
-}
+// function validateHeadphones() {
+//     if (document.getElementById("headphones").checked === false) {
+//         alert("Please confirm your headphones are plugged in.");
+//     }
+// }
 
-function validateVolume() {
-    if (document.getElementById("volume").checked === false) {
-        alert("Please confirm your headphone volume is 50%");
-    }
-}
+// function validateVolume() {
+//     if (document.getElementById("volume").checked === false) {
+//         alert("Please confirm your headphone volume is 50%");
+//     }
+// }
 
 // these functions only run when db_connection === false (e.g. omnibus.foo does not exist on server)
 // this is useful for development environments and running the task on a standalone web server with no omnibus integration
@@ -147,7 +147,7 @@ function submitIntake() {
         antihandedness = "right";
     }
 
-    if (document.getElementById("brightness").checked === false || document.getElementById("headphones").checked === false || document.getElementById("volume").checked === false) {
+    if (document.getElementById("brightness").checked === false /*|| document.getElementById("headphones").checked === false || document.getElementById("volume").checked === false*/) {
         // do nothing
     } else {
         // alert("your subjectid is " + subjectID);

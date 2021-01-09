@@ -65,14 +65,14 @@
     <label class="container">Screen brightness is up to 100% &nbsp&nbsp&nbsp&nbsp  
     <input type="checkbox" name="brightness" id="brightness" value="1"/>
     </label>
-    <br>
+    <!-- <br>
     <label class="container">Headphones plugged in? &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp      
     <input type="checkbox" name="headphones" id="headphones" value="1"/>
     </label>
     <br>
     <label class="container">Headphone volume is set to 50% &nbsp&nbsp&nbsp  
     <input type="checkbox" name="volume" id="volume" value="1"/>
-  </label>
+  </label> -->
   </form>
   <!-- <label class="container">Headphones plugged in? &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp               
     <input type="checkbox"> 
@@ -85,7 +85,7 @@
   </label>
 </form>
 <br> -->
-<button id="submitButton" class="loadMain" onclick="validateSite(), validateSubject(), validateGUID(), validateAge(), validateSex(), validateHandedness(), validateBrightness(), validateHeadphones(), validateVolume(), submitIntake()" type="button">SUBMIT</button>
+<button id="submitButton" class="loadMain" onclick="validateSite(), validateSubject(), validateGUID(), validateAge(), validateSex(), validateHandedness(), validateBrightness(), /*validateHeadphones(), validateVolume(),*/ submitIntake()" type="button">SUBMIT</button>
 </div>
 <div id="validation" style="display: none">
     <br>
