@@ -12,5 +12,5 @@ key_press,Float,,Recommended,The ascii keyboard key pressed for each response,48
 time_elapsed,integer,,Recommended,Total time passed,,useful for determining runtime as well as whether subject idles during task,
 response_face,Integer,,Recommended,Indicates if subject identified a face or not,0; 1,"0 = No face, 1 = A face is present",
 response_age,Integer,,Recommended,"Only present if subject identified face, indicates whether they labelled it as old or young",0; 1,"0 = Young face, 1 = Old face",
-response_sex,Integer,,Recommended,"Only present if subject identified face, indicates whether they labelled it as male or female",0; 1,"0 = Female, 1 = Male",
+response_gender,Integer,,Recommended,"Only present if subject identified face, indicates whether they labelled it as male or female",0; 1,"0 = Female, 1 = Male",
 accuracy_face,Integer,,Recommended,Indicates if subject correctly identified a face or correctly identified the absence of a face,0; 1,0 = Incorrect; 1 = Correct,

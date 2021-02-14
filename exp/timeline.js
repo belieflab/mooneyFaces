@@ -19,15 +19,37 @@ let instructions_1 = {
   choices: ['1', '0'],
 };
 
-
 let instructions_2 = {
+  type: "html-keyboard-response",
+  stimulus: '<h3 style="color:white;">If you respond that the image is a face, you will make two additional ratings.</h3>' +
+    '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
+  choices: ['1', '0'],
+};
+
+let instructions_3 = {
+  type: "html-keyboard-response",
+  stimulus: '<h3 style="color:white;">If you believe the face is a <u>male</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the image is a <u>female</u>, please press the <u>0</u> key on your keyboard.</h3>' +
+    '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
+  choices: ['1', '0'],
+};
+
+let instructions_4 = {
+  type: "html-keyboard-response",
+  stimulus: '<h3 style="color:white;">If you believe the face is a <u>young</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the image is a <u>old</u>, please press the <u>0</u> key on your keyboard.</h3>' +
+    '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
+  choices: ['1', '0'],
+};
+
+let instructions_5 = {
   type: "html-keyboard-response",
   stimulus: '<h3 style="color:white;">Please respond as quickly as possible while maintaining a high level of confidence in your choice.</h3>' +
       '<p style="color:white;"><i>Press the spacebar when you are ready to begin the experiment.<i></p>',
   choices: [32],
 };
 
-let first_half = {
+let faces = {
   type: "html-keyboard-response",
   stimulus: function(){
     var html = "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>"+
@@ -39,7 +61,7 @@ let first_half = {
     "<br>"+
     "<br>"+
     "<br>"+
-    "<p style='color:white;'>Face (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Not a Face (press 0)</p>";
+    "<p style='color:white;'><b>Face</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Not a Face</b> (press 0)</p>";
     // "<p style='color:white;'>Press 1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Press 0</p>";
     return html;
   },
@@ -58,8 +80,8 @@ let first_half = {
     data.handedness = handedness;
     data.index = experimentIterator;
     experimentIterator++;
-    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
-    // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
+    data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
       data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
@@ -70,12 +92,29 @@ let first_half = {
   }
 }
 
+// var switch_timeline = {
+//   switch_function: function() {
+//     // function returns either true or false, but return values could be anything...
+//     return jsPsych.data.getLastTrialData().select('correct').values()[0]; // uses new unreleased data structures
+//   },
+//   switch_timelines: {
+//     true: gender, // Object keys must match up with possible return values, Object values are timelines.
+//     false: 
+//   }
+// }
+
+// var if_trial = {
+//   type: 'html-keyboard-response',
+//   stimulus: 'You chose to view the trial. Press any key to continue.'
+// }
 
 
-let second_half = {
+
+let gender = {
   type: "html-keyboard-response",
   stimulus: function(){
-    var html = "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>"+
+    // var html = "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>"+
+    var html =
     "<br>"+
     "<br>"+
     "<br>"+
@@ -84,34 +123,87 @@ let second_half = {
     "<br>"+
     "<br>"+
     "<br>"+
-    "<p style='color:white;'>Face (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Not a Face (press 0)</p>";
+    "<p style='color:white;'><b>Male</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Female</b> (press 0)</p>";
     // "<p style='color:white;'>Press 1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Press 0</p>";
     return html;
   },
   choices: ['1', '0'],
-  trial_duration: 5000,
-  stimulus_height: 225,
-  stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subjectKey = GUID;
+    data.subject_key = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
-    data.index = experimentIterator;
     data.handedness = handedness;
-    experimentIterator++;
-    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
-    // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    } else {
-      data.accuracy_face = '';
+    data.index = experimentIterator;
+    // experimentIterator++;
+    if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '1') {
+      data.response_gender = 'male';
+      console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press));
+    } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '0') {
+      data.response_gender = 'female';
+      console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press))
     }
+  }
+}
+
+let age = {
+  type: "html-keyboard-response",
+  stimulus: function(){
+    // var html = "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>"+
+    var html =
+    "<br>"+
+    "<br>"+
+    "<br>"+
+    "<br>"+
+    "<br>"+
+    "<br>"+
+    "<br>"+
+    "<br>"+
+    "<p style='color:white;'><b>Young</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Old</b> (press 0)</p>";
+    // "<p style='color:white;'>Press 1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Press 0</p>";
+    return html;
+  },
+  choices: ['1', '0'],
+  data: jsPsych.timelineVariable('data'),
+  on_finish: function(data){
+    data.subject_key = GUID;
+    data.src_subject_id = workerId;
+    data.site = siteNumber;
+    data.interview_date = today;
+    data.interview_age = ageAtAssessment;
+    data.sex = sexAtBirth;
+    data.handedness = handedness;
+    data.index = experimentIterator;
+    // experimentIterator++;
+    if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '1') {
+      data.response_age = 'young';
+      console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press));
+    } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '0') {
+      data.response_age = 'old';
+      console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press))
+    }
+  }
+}
+
+var if_node = {
+  timeline: [gender, age],
+  conditional_function: function(){
+      // get the data from the previous trial,
+      // and check which key was pressed
+      var data = jsPsych.data.get().last(1).values()[0];
+      if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('0')){
+        console.log('false');
+          return false;
+      } else if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('1')){
+        console.log('true');
+          return true;
+      } else {
+        console.log('no repsonse')
+        return false;
+      }
   }
 }
 
