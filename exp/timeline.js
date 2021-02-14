@@ -28,16 +28,16 @@ let instructions_2 = {
 
 let instructions_3 = {
   type: "html-keyboard-response",
-  stimulus: '<h3 style="color:white;">If you believe the face is a <u>male</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-    '<h3 style="color:white;">If you believe the image is a <u>female</u>, please press the <u>0</u> key on your keyboard.</h3>' +
+  stimulus: '<h3 style="color:white;">If you believe the face is <u>male</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the face is <u>female</u>, please press the <u>0</u> key on your keyboard.</h3>' +
     '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
   choices: ['1', '0'],
 };
 
 let instructions_4 = {
   type: "html-keyboard-response",
-  stimulus: '<h3 style="color:white;">If you believe the face is a <u>young</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-    '<h3 style="color:white;">If you believe the image is a <u>old</u>, please press the <u>0</u> key on your keyboard.</h3>' +
+  stimulus: '<h3 style="color:white;">If you believe the face is <u>young</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the face is <u>old</u>, please press the <u>0</u> key on your keyboard.</h3>' +
     '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
   choices: ['1', '0'],
 };

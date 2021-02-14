@@ -17,7 +17,6 @@ for (let i = 0; i < inverted.length ; i++){
   // console.log(inverted_stimuli[i]);
 }
 
-
 let catch_stimuli = [];
 for (let i = 0; i < catchStim.length; i++){
   catch_stimuli.push("stimuli/scrambled/original/my_bitmap" + catchStim[i] + "(scrambled).bmp");
