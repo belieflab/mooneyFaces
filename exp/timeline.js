@@ -36,8 +36,8 @@ let instructions_3 = {
 
 let instructions_4 = {
   type: "html-keyboard-response",
-  stimulus: '<h3 style="color:white;">If you believe the face is <u>young</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-    '<h3 style="color:white;">If you believe the face is <u>old</u>, please press the <u>0</u> key on your keyboard.</h3>' +
+  stimulus: '<h3 style="color:white;">If you believe the face is a <u>child</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the face is an <u>adult</u>, please press the <u>0</u> key on your keyboard.</h3>' +
     '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
   choices: ['1', '0'],
 };
@@ -162,7 +162,7 @@ let age = {
     "<br>"+
     "<br>"+
     "<br>"+
-    "<p style='color:white;'><b>Young</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Old</b> (press 0)</p>";
+    "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>";
     // "<p style='color:white;'>Press 1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Press 0</p>";
     return html;
   },
@@ -179,10 +179,10 @@ let age = {
     data.index = experimentIterator;
     // experimentIterator++;
     if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '1') {
-      data.response_age = 'young';
+      data.response_age = 'child';
       console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press));
     } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '0') {
-      data.response_age = 'old';
+      data.response_age = 'adult';
       console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press))
     }
   }
