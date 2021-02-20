@@ -22,6 +22,7 @@ let instructions_1 = {
 let instructions_2 = {
   type: "html-keyboard-response",
   stimulus: '<h3 style="color:white;">If you respond that the image is a face, you will make two additional ratings.</h3>' +
+    "<h3 style='color:white;'>The instructions will always be shown after you respond, so you don't need to memorize them.</h3>" +
     '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
   choices: ['1', '0'],
 };
