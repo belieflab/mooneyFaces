@@ -49,7 +49,7 @@ let first_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subject_key = GUID;
+    data.subjectkey = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
@@ -62,11 +62,11 @@ let first_half = {
     data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else {
-      data.correct_face = '';
+      data.accuracy_face = '';
     }
   }
 }
@@ -95,16 +95,17 @@ let second_half = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subjectKey = GUID;
+    data.subjectkey = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
-    data.index = experimentIterator;
+    data.phenotype = groupStatus;
     data.handedness = handedness;
+    data.index = experimentIterator;
     experimentIterator++;
-    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press)
+    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
       data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
