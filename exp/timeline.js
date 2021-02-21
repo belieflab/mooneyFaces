@@ -72,7 +72,7 @@ let faces = {
   stimulus_width: 225,
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subject_key = GUID;
+    data.subjectkey = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
@@ -81,36 +81,17 @@ let faces = {
     data.phenotype = groupStatus;
     data.handedness = handedness;
     data.index = experimentIterator;
-    experimentIterator++;
     data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
-    data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.correct_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     } else {
-      data.correct_face = '';
+      data.accuracy_face = '';
     }
   }
 }
-
-// var switch_timeline = {
-//   switch_function: function() {
-//     // function returns either true or false, but return values could be anything...
-//     return jsPsych.data.getLastTrialData().select('correct').values()[0]; // uses new unreleased data structures
-//   },
-//   switch_timelines: {
-//     true: gender, // Object keys must match up with possible return values, Object values are timelines.
-//     false: 
-//   }
-// }
-
-// var if_trial = {
-//   type: 'html-keyboard-response',
-//   stimulus: 'You chose to view the trial. Press any key to continue.'
-// }
-
-
 
 let gender = {
   type: "html-keyboard-response",
@@ -132,12 +113,13 @@ let gender = {
   choices: ['1', '0'],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subject_key = GUID;
+    data.subjectkey = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
+    data.phenotype = groupStatus;
     data.handedness = handedness;
     data.index = experimentIterator;
     // experimentIterator++;
@@ -171,15 +153,16 @@ let age = {
   choices: ['1', '0'],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
-    data.subject_key = GUID;
+    data.subjectkey = GUID;
     data.src_subject_id = workerId;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
     data.sex = sexAtBirth;
+    data.phenotype = groupStatus;
     data.handedness = handedness;
     data.index = experimentIterator;
-    // experimentIterator++;
+    experimentIterator++;
     if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '1') {
       data.response_age = 'child';
       console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press));
@@ -197,6 +180,7 @@ var if_node = {
       // and check which key was pressed
       var data = jsPsych.data.get().last(1).values()[0];
       if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('0')){
+        experimentIterator++;
         console.log('false');
           return false;
       } else if(data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode('1')){
@@ -204,6 +188,7 @@ var if_node = {
           return true;
       } else {
         console.log('no repsonse')
+        experimentIterator++;
         return false;
       }
   }
