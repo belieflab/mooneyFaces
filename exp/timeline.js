@@ -59,7 +59,7 @@ let first_half = {
     data.handedness = handedness;
     data.index = experimentIterator;
     experimentIterator++;
-    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
+    data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
       data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
@@ -105,7 +105,7 @@ let second_half = {
     data.handedness = handedness;
     data.index = experimentIterator;
     experimentIterator++;
-    data.response = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
+    data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
       data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
