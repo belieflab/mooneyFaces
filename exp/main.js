@@ -7,7 +7,7 @@ let procedureInstructions = { //This loops over the object
 let first_procedure = {
   timeline: [fixation, faces, if_node],
   randomize_order: false,
-  timeline_variables: full_stim_shuffle.slice(0,43)
+  timeline_variables: full_stim_shuffle.slice(0,53)
   // randomize_order: true
 };
 
@@ -18,7 +18,7 @@ let rest = {
 let second_procedure = {
   timeline: [fixation, faces, if_node],
   randomize_order: false,
-  timeline_variables: full_stim_shuffle.slice(43,86),
+  timeline_variables: full_stim_shuffle.slice(53,106),
 };
 
 timeline.push(welcome)

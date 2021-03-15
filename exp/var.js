@@ -23,6 +23,12 @@ for (let i = 0; i < catchStim.length; i++){
   // console.log(catch_stimuli[i]);
 }
 
+let catch_stimuli_inverted = [];
+for (let i = 0; i < catchStim.length; i++){
+  catch_stimuli_inverted.push("stimuli/scrambled/U0" + catchStim[i] + "-180.png");
+  // console.log(catch_stimuli[i]);
+}
+
 let full_stim = [];
   for (let i = 0; i < original.length ; i++){
     full_stim.push({stimulus: original_stimuli[i], data: {stimulus: original[i], stim: original[i]+".jpg", test_part: 'original', correct_response: '1', incorrect_response: '0'}},)
@@ -31,7 +37,10 @@ let full_stim = [];
     full_stim.push({stimulus: inverted_stimuli[i], data: {stimulus: inverted[i], stim: inverted[i]+".jpg", test_part: 'inverted', correct_response: '0', incorrect_response: '1'}},)
   }
   for (let i = 0; i < catchStim.length; i++){
-    full_stim.push({stimulus: catch_stimuli[i], data: {stimulus: catchStim[i], stim: "U0"+catchStim[i]+".png", test_part: 'catch', correct_response: '', incorrect_response: ''}},)
+    full_stim.push({stimulus: catch_stimuli[i], data: {stimulus: catchStim[i], stim: "U0"+catchStim[i]+".png", test_part: 'catch', correct_response: '0', incorrect_response: '1'}},)
+  }
+  for (let i = 0; i < catchStim.length; i++){
+    full_stim.push({stimulus: catch_stimuli_inverted[i], data: {stimulus: catchStim[i]+"-180.png", stim: "U0"+catchStim[i]+"-180.png", test_part: 'catch', correct_response: '0', incorrect_response: '1'}},)
   }
 
 let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled array no repeats

@@ -83,12 +83,22 @@ let faces = {
     data.index = experimentIterator;
     data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
     // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
-      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
-      data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    } else {
-      data.accuracy_face = '';
+    if (data.test_part=='original' || data.test_part=='inverted') {
+      if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
+        data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
+        data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      } else {
+        data.accuracy_face = '';
+      }
+    } else if (data.test_part=='catch') {
+      if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response)){
+        data.accuracy_catch = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      } else if (data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.incorrect_response)){
+        data.accuracy_catch = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      } else {
+        data.accuracy_catch = '';
+      }
     }
   }
 }
