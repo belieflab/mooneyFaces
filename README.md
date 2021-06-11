@@ -7,6 +7,7 @@ The Mooney Faces Task presents a randomized array of 48 images with a break in b
 Once you have copied the repository, adjust the permissions to allow access to the code.
     
     sudo chmod -R 755 mooneyFaces/
+    sudo chmod -R 777 mooneyFaces/data
 
     
 
