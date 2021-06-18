@@ -33,7 +33,8 @@
     </form> -->
     <form action="<?php echo SIGNUP_VIEW ?>/post/intakeadd.php" method="post">
     <p><b>Subject ID:</b></p>
-    <input required id="subjectid" type="text" name="subjectid" minlength="5" maxlength="5">
+    <p><b>e.g. M012345</b></p>
+    <input required id="subjectid" type="text" name="subjectid" minlength="7" maxlength="7">
     
     <!-- GUID -->
     <!-- <p><b>GUID:</b></p> -->
