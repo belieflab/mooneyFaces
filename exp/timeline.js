@@ -73,7 +73,7 @@ let faces = {
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
     data.subjectkey = GUID;
-    data.src_subject_id = workerId;
+    data.src_subject_id = subjectID;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
@@ -124,7 +124,7 @@ let gender = {
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
     data.subjectkey = GUID;
-    data.src_subject_id = workerId;
+    data.src_subject_id = subjectID;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
@@ -164,7 +164,7 @@ let age = {
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
     data.subjectkey = GUID;
-    data.src_subject_id = workerId;
+    data.src_subject_id = subjectID;
     data.site = siteNumber;
     data.interview_date = today;
     data.interview_age = ageAtAssessment;
