@@ -77,6 +77,29 @@ function validateSex() {
     }
 }
 
+function validatePhenotype() {
+    let phenotype = document.getElementById("phenotype");
+
+    if (document.getElementById("phenotype").value === 'none') {
+        alert('Please select a valid group status by refreshing the page.');
+    }
+
+    // const zeroPad = (num, places) => String(num).padStart(places, '0');
+    switch(phenotype.options[phenotype.selectedIndex].value){
+        case "hc":
+            groupStatus = 'HC';
+            break;
+        case "ncv":
+            groupStatus = 'NCV';
+            break;
+        case "sz":
+            groupStatus = 'SZ';
+            break;
+        default:
+            groupStatus = '';
+    }
+}
+
 function validateSite() {
     let siteID = document.getElementById("siteid");
 
