@@ -29,8 +29,8 @@ let instructions_2 = {
 
 let instructions_3 = {
   type: "html-keyboard-response",
-  stimulus: '<h3 style="color:white;">If you believe the face is <u>male</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-    '<h3 style="color:white;">If you believe the face is <u>female</u>, please press the <u>0</u> key on your keyboard.</h3>' +
+  stimulus: '<h3 style="color:white;">If you believe the face is <u>more masculine</u>, please press the <u>1</u> key on your keyboard.</h3>' +
+    '<h3 style="color:white;">If you believe the face is <u>more feminine</u>, please press the <u>0</u> key on your keyboard.</h3>' +
     '<p style="color:white;"><i>Press either response keys to continue.</i></p>',
   choices: ['1', '0'],
 };
@@ -116,7 +116,7 @@ let gender = {
     "<br>"+
     "<br>"+
     "<br>"+
-    "<p style='color:white;'><b>Male</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Female</b> (press 0)</p>";
+    "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>";
     // "<p style='color:white;'>Press 1 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Press 0</p>";
     return html;
   },
@@ -134,10 +134,10 @@ let gender = {
     data.index = experimentIterator;
     // experimentIterator++;
     if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '1') {
-      data.response_gender = 'male';
+      data.response_gender = 'masculine';
       console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press));
     } else if (jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press) === '0') {
-      data.response_gender = 'female';
+      data.response_gender = 'feminine';
       console.log(jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press))
     }
   }
