@@ -119,11 +119,7 @@ let faces = {
             } else {
                 data.accuracy_face = "";
             }
-        } else if (
-            data.test_part == "catch" ||
-            data.test_part == "scrambled_inverted" ||
-            data.test_part == "scrambled_upright"
-        ) {
+        } else if (data.test_part == "catch") {
             if (
                 data.key_press ==
                 jsPsych.pluginAPI.convertKeyCharacterToKeyCode(
