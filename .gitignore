@@ -4,3 +4,4 @@ data/*
 scripts/tmp*
 !scripts/tmp/.gitkeep
 .Rproj.user
+._*
