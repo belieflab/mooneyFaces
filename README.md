@@ -15,5 +15,13 @@ Once you have cloned the repository to your webroot, adjust the permissions to a
     sudo chmod -R 755 mooneyFaces/
     sudo chmod -R 777 mooneyFaces/data
 
-    
+## Scroing:
+
+Once you have collected data, you will see data populated inside of `data/`
+
+1. Open the `mooneyFaces/` repository in Finder (MacOS) or File Explorer (Windows) and double click mooneyFaces.Rproj
+2. Run `scripts/scoring.R`
+
+A new data frame `mooney_clean` will be created and a csv of that data frame will be exported to `output/mooney_clean.csv`
+
 
