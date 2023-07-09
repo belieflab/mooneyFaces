@@ -1,4 +1,6 @@
 .DS_Store
 data/*
 !data/.gitkeep
+scripts/tmp*
+!scripts/tmp/.gitkeep
 .Rproj.user
