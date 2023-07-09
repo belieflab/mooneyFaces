@@ -2,7 +2,7 @@
 
 The Mooney Faces Task presents a randomized array of 48 images with a break in between.
 
-The Silverstein version adds rating judgements for whether a face appears to be an adult / child and whether a face appears to be more masculine or feminine.
+The Silverstein version adds 2 rating judgements for whether a face appears to be an adult / child and whether a face appears to be more masculine or feminine.
 
 The Silverstein version also adds 10 inverted and 10 upright catch images which should never be construed as a face.
 
