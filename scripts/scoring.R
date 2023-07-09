@@ -1,75 +1,18 @@
-
-# STOP! If you did not open this as a project, do so NOW.
-### (1) Open new project, select the Mooney Faces folder, click "open"
-### (2) Open this script from the script folder
-
-
 ### Collaborators (auto-populated):
 ###
 ### joshkenney
 ### mkpappu
 ### tanya-tran
+
+### STOP! If you did not open this as a project, do so NOW.
+### (1) Double click mooneyFaces.Rproj to open the project to set all paths correctly
+### (2) Open this script from the script folder
+
 ## Title: Mooney Faces
 ## Author: Praveen Suthaharan, Josh Kenney
 ## Description: Function to summarize performance from the mooney faces task 
-## Input: Omnibus-based Mooney Faces Task Data
-## Output: 
-##         (1) Faces upright (%)
-##         (2) Faces inverted (%)
-##         (3) Faces scrambled (%)
-##         (4) Correct answers
-##         (5) Accuracy
-
-# read in single file from omnibus
-# NOTE: will later add code to read multiple files
-
-# mongo updates will be necessary as new data is uploaded
-# fix to task repo / data file implemented May 19 2022
-
-# db.mooneyTest.updateMany(
-#   {
-#     test_part: "scrambed_upright",
-#     response_face: { $eq: "1" }
-#   },
-#   { $set: { accuracy_catch: "false" } }
-# );
-# 
-# db.mooneyTest.updateMany(
-#   {
-#     test_part: "scrambed_upright",
-#     response_face: { $eq: "0" }
-#   },
-#   { $set: { accuracy_catch: "true" } }
-# );
-# 
-# db.mooneyTest.updateMany(
-#   {
-#     test_part: "scrambled_inverted",
-#     response_face: { $eq: "1" }
-#   },
-#   { $set: { accuracy_catch: "false" } }
-# );
-# 
-# db.mooneyTest.updateMany(
-#   {
-#     test_part: "scrambled_inverted",
-#     response_face: { $eq: "0" }
-#   },
-#   { $set: { accuracy_catch: "true" } }
-# );
-# 
-# db.mooneyTest.updateMany(
-#   { test_part: "scrambled_inverted" },
-#   { $set: { test_part: "catch" } }
-# );
-# 
-# 
-# db.mooneyTest.updateMany(
-#   { test_part: "scrambed_upright" },
-#   { $set: { test_part: "catch" } }
-# );
-# 
-# db.mooneyTest.updateMany({}, { $unset: { ground_truth: "" } });
+## Input: data/*.csv
+## Output: output/mooney_clean.csv
 
 ## read in data
 # Create an empty dataframe to store the merged data
@@ -78,17 +21,24 @@ mooney <- data.frame()
 # Get the list of files in the "data/" folder
 file_list <- list.files("data/", full.names = TRUE)
 
-# Loop through each file and merge it into the merged_data dataframe
-for (file in file_list) {
-  # Read the CSV file
-  data <- read.csv(file)
+# Check if the file_list is empty
+if (length(file_list) == 0) {
+  # Handle the case when no files are found in the folder
+  print("No files found in the 'data/' folder.")
+} else {
+  # Loop through each file and merge it into the merged_data dataframe
+  for (file in file_list) {
+    # Read the CSV file
+    data <- read.csv(file)
+    
+    # Merge the data into the merged_data dataframe
+    mooney <- rbind(mooney, data)
+  }
   
-  # Merge the data into the merged_data dataframe
-  mooney <- rbind(mooney, data)
+  # Print the merged_data dataframe
+  print(mooney)
 }
 
-# Print the merged_data dataframe
-View(mooney)
 
 
 # convert dates
@@ -448,7 +398,7 @@ mooneyFacesPerformance <- function(data = mooney_faces){
   
   
   
-  write.csv(do.call(rbind.data.frame, summary_MFT_performance_df), "tmp/MFT_performance_summary.csv", row.names = FALSE)
+  write.csv(do.call(rbind.data.frame, summary_MFT_performance_df), "scripts/tmp/MFT_performance_summary.csv", row.names = FALSE)
   
   
 }
@@ -527,8 +477,10 @@ colnames(mooney_faces_reported_dat) <- c("src_subject_id",
 # mooney_faces_reported_dat[which(is.na(mooney_faces_reported_dat$scrambled_inverted_reported)),]$scrambled_inverted_reported <- 0
 # 
 
+# create cleaned, scored data frame
 mooney_clean <- mooney_faces_reported_dat
 
-createCsv(mooney_clean)
-
-createCsv(mooney)
+# create csv of cleaned, scored data frame
+path = paste('output/',deparse(substitute(df)),'.csv',sep='')
+write.csv(mooney_clean,path,row.names = FALSE)
+cat(paste0("Extract created at ",path))
