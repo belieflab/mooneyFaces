@@ -4,7 +4,9 @@ This task presents a randomized array of 48 images of faces. Half of the faces a
 
 The participant is prompted to respond whether the image present was or was not a face, within 5 seconds.
 
-The Silverstein version adds 2 additional raings where the participants judges whether a face appears to be an adult or child, and whether a face appears to be more masculine or feminine.
+The Silverstein version adds 2 additional ratings where the participants identifies either an upright or inverted image as a face:
+1) whether a face appears to be an adult or child, and
+2) whether a face appears to be more masculine or feminine.
 
 The Silverstein version also adds 10 inverted and 10 upright catch images which should never be construed as a face.
 
