@@ -20,7 +20,7 @@ Once you have cloned the repository to your web server's root directory, adjust 
     sudo chmod -R 755 mooneyFaces/
     sudo chmod -R 777 mooneyFaces/data
 
-## Scroing:
+## Scoring:
 
 Once you have collected data, you will see data populated inside of `data/`
 
