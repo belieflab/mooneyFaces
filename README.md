@@ -6,8 +6,8 @@ The participant is prompted to respond whether the image present was or was not 
 
 The Silverstein version adds 2 additional ratings:
     1) whether the face appears to be an adult or child, and
-    2) whether the face appears to be more masculine or more feminine.
-, should the participant identifies an image as a face, regardless of its ground truth (upright or inverted).
+    2) whether the face appears to be more masculine or more feminine,
+should the participant identifies an image as a face, regardless of its ground truth (upright or inverted).
 
 The Silverstein version also adds 10 inverted and 10 upright catch images which should never be construed as a face.
 
