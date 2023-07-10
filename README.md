@@ -15,7 +15,7 @@ The total administration time should last no longer than 15 minutes.
 
 ## Installation:
 
-Once you have cloned the repository to your webroot, adjust the permissions to allow access to the source code and folder for data saving:
+Once you have cloned the repository to your web server's root directory, adjust the permissions to allow access to the source code and folder for data saving:
     
     sudo chmod -R 755 mooneyFaces/
     sudo chmod -R 777 mooneyFaces/data
