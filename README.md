@@ -1,6 +1,6 @@
 # mooneyFaces
 
-This task presents a randomized array of 48 images of faces. Half of the faces are inverted and half are not inverted.
+This task presents a randomized array of 48 images of faces; half of the faces are inverted and half are not inverted.
 
 The participant is prompted to respond whether the image present was or was not a face, within 5 seconds.
 
