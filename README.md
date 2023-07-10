@@ -1,8 +1,10 @@
 # mooneyFaces
 
-The Mooney Faces Task presents a randomized array of 48 images of faces with a break in between. Half of the faces are inverted, and half are not inverted.
+The Mooney Faces Task presents a randomized array of 48 images of faces. Half of the faces are inverted, and half are not inverted.
 
-The Silverstein version adds 2 rating judgements for whether a face appears to be an adult / child and whether a face appears to be more masculine or feminine.
+The participant is prompted to respond whether the image present was or was not a face, within 5 seconds.
+
+The Silverstein version adds 2 additional raings where the participants judges whether a face appears to be an adult or child, and whether a face appears to be more masculine or feminine.
 
 The Silverstein version also adds 10 inverted and 10 upright catch images which should never be construed as a face.
 
