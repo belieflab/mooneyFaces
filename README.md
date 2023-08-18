@@ -15,10 +15,46 @@ The total administration time should last no longer than 15 minutes.
 
 ## Installation:
 
-Once you have cloned the repository to your web server's root directory, adjust the permissions to allow access to the source code and folder for data saving:
-    
-    sudo chmod -R 755 mooneyFaces/
-    sudo chmod -R 777 mooneyFaces/data
+#### Install and configure XAMPP:
+1. [Download XAMPP](https://www.apachefriends.org/download.html) with PHP version 7.3.19 (try to stick with PHP version 7.x.x)
+2. Open XAMPP and click "Start" to boot the XAMPP application.
+3. Navigate to "Services" and click "Start All" button.
+4. Navigate to "Network", select localhost:8080, and click "Enable".
+5. Navigate to "Volumes" and click "Mount".
+
+
+
+#### Clone the git repository:
+6. Open Terminal and navigate to the htdocs directory:
+
+    Mac/Linux:
+
+        cd ~/.bitnami/stackman/machines/xampp/volumes/root/htdocs
+    Windows:
+
+        cd C:\\xampp\\htdocs
+
+7. Remove index.php from htdocs
+   
+       rm index.php
+
+9. Clone into htdocs:
+
+        git clone --branch silverstein https://github.com/belieflab/mooneyFaces.git
+
+#### Modify permissions (Mac / Linux only):
+8. Copy this text into your terminal from the htdocs folder (the folder you are already in).
+
+        sudo chmod -R 777 mooneyFaces/
+
+This adjusts the permissions to allow access to the source code and folder for data saving.
+        
+#### Start experiment:
+Depending on your XAMPP installation, the experiment may be hosted over 80 or 8080.     
+9. Click this URL: [http://localhost:80/mooneyFaces](http://localhost:80/mooneyFaces)
+10. Click this URL: [http://localhost:8080/mooneyFaces](http://localhost:8080/mooneyFaces)
+
+
 
 ## Scoring:
 
