@@ -19,14 +19,12 @@
   </head>
   <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;"> 
     <?php
-      if ($db_connection_status == true) {
+      if (isset($_GET["workerId"])) {
+        include_once "include/con.php";
+      } else if (isset($_GET["src_subject_id"])) {
         include_once "include/nda.php";
-        // echo'<br>';
-        // echo'connected';
-      } else if ($db_connection_status == false) {
+      } else {
         include_once "include/intake.php";
-        // echo'<br>';
-        // echo'not connected';
       }
     ?>
   </body>
