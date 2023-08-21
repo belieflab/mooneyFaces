@@ -34,11 +34,7 @@ The total administration time should last no longer than 15 minutes.
 
         cd C:\\xampp\\htdocs
 
-7. Remove index.php from htdocs
-   
-       rm index.php
-
-9. Clone into htdocs:
+7. Clone into htdocs:
 
         git clone --branch silverstein https://github.com/belieflab/mooneyFaces.git
 
@@ -51,9 +47,10 @@ This adjusts the permissions to allow access to the source code and folder for d
         
 #### Start experiment:
 Depending on your XAMPP installation, the experiment may be hosted over 80 or 8080.     
-9. Click this URL: [http://localhost:80/mooneyFaces](http://localhost:80/mooneyFaces)
-10. Click this URL: [http://localhost:8080/mooneyFaces](http://localhost:8080/mooneyFaces)
 
+9. Click this URL: [http://localhost:80/mooneyFaces](http://localhost:80/mooneyFaces)
+
+10. Click this URL: [http://localhost:8080/mooneyFaces](http://localhost:8080/mooneyFaces)
 
 
 ## Scoring:
@@ -61,6 +58,7 @@ Depending on your XAMPP installation, the experiment may be hosted over 80 or 80
 Once you have collected data, you will see data populated inside of `data/`
 
 1. Open the `mooneyFaces/` repository in Finder (MacOS) or File Explorer (Windows) and double click mooneyFaces.Rproj
+   
 2. Run `scripts/scoring.R`
 
 A new data frame `mooney_clean` will be created and a csv of that data frame will be exported to `output/mooney_clean.csv`
