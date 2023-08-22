@@ -1,6 +1,6 @@
 let experimentIterator = 1;
 
-const original = [
+const upright = [
     "26.2",
     "45.2",
     "19.2",
@@ -46,7 +46,7 @@ const original = [
     "17.2",
 ];
 
-const original_ground_truth_gender = [
+const upright_ground_truth_gender = [
     "masculine",
     "ambiguous",
     "masculine",
@@ -92,7 +92,7 @@ const original_ground_truth_gender = [
     "ambiguous",
 ];
 
-const original_ground_truth_age = [
+const upright_ground_truth_age = [
     "adult",
     "adult",
     "adult",
@@ -289,10 +289,10 @@ const catchStim = [
     "807",
 ];
 
-let original_stimuli = [];
-for (let i = 0; i < original.length; i++) {
-    original_stimuli.push("stimuli/original/my_bitmap" + original[i] + ".jpg");
-    // console.log(original_stimuli[i]);
+let upright_stimuli = [];
+for (let i = 0; i < upright.length; i++) {
+    upright_stimuli.push("stimuli/upright/my_bitmap" + upright[i] + ".jpg");
+    // console.log(upright_stimuli[i]);
 }
 
 let inverted_stimuli = [];
@@ -316,17 +316,17 @@ for (let i = 0; i < catchStim.length; i++) {
 }
 
 let full_stim = [];
-for (let i = 0; i < original.length; i++) {
+for (let i = 0; i < upright.length; i++) {
     full_stim.push({
-        stimulus: original_stimuli[i],
+        stimulus: upright_stimuli[i],
         data: {
-            stimulus: original[i],
-            stim: original[i] + ".jpg",
-            test_part: "original",
+            stimulus: upright[i],
+            stim: upright[i] + ".jpg",
+            test_part: "upright",
             correct_response: "1",
             incorrect_response: "0",
-            ground_truth_gender: original_ground_truth_gender[i],
-            ground_truth_age: original_ground_truth_gender[i],
+            ground_truth_gender: upright_ground_truth_gender[i],
+            ground_truth_age: upright_ground_truth_gender[i],
         },
     });
 }
