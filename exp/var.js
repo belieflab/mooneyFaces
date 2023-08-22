@@ -325,8 +325,12 @@ for (let i = 0; i < upright.length; i++) {
             test_part: "upright",
             correct_response: "1",
             incorrect_response: "0",
-            ground_truth_gender: upright_ground_truth_gender[i],
-            ground_truth_age: upright_ground_truth_gender[i],
+        },
+        gender: {
+            ground_truth_gender: inverted_ground_truth_gender[i],
+        },
+        age: {
+            ground_truth_age: inverted_ground_truth_age[i],
         },
     });
 }
@@ -339,7 +343,11 @@ for (let i = 0; i < inverted.length; i++) {
             test_part: "inverted",
             correct_response: "0",
             incorrect_response: "1",
+        },
+        gender: {
             ground_truth_gender: inverted_ground_truth_gender[i],
+        },
+        age: {
             ground_truth_age: inverted_ground_truth_age[i],
         },
     });
