@@ -19,13 +19,13 @@ The total administration time should last no longer than 15 minutes.
 1. [Download XAMPP](https://www.apachefriends.org/download.html) with PHP version 7.3.19 (try to stick with PHP version 7.x.x)
 2. Open XAMPP and click "Start" to boot the XAMPP application.
 3. Navigate to "Services" (or servers for Mac) and click "Start All" button.
-4. Navigate to "Network", select localhost:8080, and click "Enable".
+4. Navigate to "Network", select localhost:80, and click "Enable".
 
 
 
 
 #### Clone the git repository:
-6. Open Terminal and navigate to the htdocs directory:
+5. Open Terminal and navigate to the htdocs directory:
 
     Mac:
 
@@ -39,22 +39,21 @@ The total administration time should last no longer than 15 minutes.
 
         cd C:\\xampp\\htdocs
 
-8. Clone into htdocs:
+6. Clone into htdocs:
 
         git clone --branch silverstein https://github.com/belieflab/mooneyFaces.git
 
 #### Modify permissions (Mac / Linux only):
-8. Copy this text into your terminal from the htdocs folder (the folder you are already in).
+7. Copy this text into your terminal from the htdocs folder (the folder you are already in).
 
         chmod -R 777 mooneyFaces/
 
 This adjusts the permissions to allow access to the source code and folder for data saving.
 
     
-#### Start experiment:
-Depending on your XAMPP installation, the experiment may be hosted over 80 or 8080.     
+#### Start experiment:     
 
-9. Click this URL: [http://localhost:80/mooneyFaces](http://localhost:80/mooneyFaces)
+8. Click this URL: [http://localhost:80/mooneyFaces](http://localhost:80/mooneyFaces)
 
 
 
