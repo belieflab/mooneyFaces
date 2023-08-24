@@ -167,8 +167,20 @@ let gender = {
         return html;
     },
     choices: ["1", "0"],
-    data: jsPsych.timelineVariable("data"),
-    data: jsPsych.timelineVariable("gender"),
+    data: {
+        stimulus: JSON.stringify(jsPsych.timelineVariable("data").stimulus),
+        stim: JSON.stringify(jsPsych.timelineVariable("data").stim),
+        test_part: JSON.stringify(jsPsych.timelineVariable("date").test_part),
+        correct_response: JSON.stringify(
+            jsPsych.timelineVariable("date").correct_response
+        ),
+        incorrect_response: JSON.stringify(
+            jsPsych.timelineVariable("date").incorrect_response
+        ),
+        ground_truth_gender: JSON.stringify(
+            jsPsych.timelineVariable("gender").ground_truth_gender
+        ),
+    },
     on_finish: function (data) {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
@@ -218,8 +230,20 @@ let age = {
         return html;
     },
     choices: ["1", "0"],
-    data: jsPsych.timelineVariable("data"),
-    data: jsPsych.timelineVariable("age"),
+    data: {
+        stimulus: JSON.stringify(jsPsych.timelineVariable("data").stimulus),
+        stim: JSON.stringify(jsPsych.timelineVariable("data").stim),
+        test_part: JSON.stringify(jsPsych.timelineVariable("date").test_part),
+        correct_response: JSON.stringify(
+            jsPsych.timelineVariable("date").correct_response
+        ),
+        incorrect_response: JSON.stringify(
+            jsPsych.timelineVariable("date").incorrect_response
+        ),
+        ground_truth_age: JSON.stringify(
+            jsPsych.timelineVariable("age").ground_truth_age
+        ),
+    },
     on_finish: function (data) {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
