@@ -167,10 +167,8 @@ let gender = {
         return html;
     },
     choices: ["1", "0"],
-    data: {
-        data: jsPsych.timelineVariable("data"),
-        gender: jsPsych.timelineVariable("gender"),
-    },
+    data: jsPsych.timelineVariable("data"),
+    data: jsPsych.timelineVariable("gender"),
     on_finish: function (data) {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
@@ -220,10 +218,8 @@ let age = {
         return html;
     },
     choices: ["1", "0"],
-    data: {
-        data: jsPsych.timelineVariable("data"),
-        age: jsPsych.timelineVariable("age"),
-    },
+    data: jsPsych.timelineVariable("data"),
+    data: jsPsych.timelineVariable("age"),
     on_finish: function (data) {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
