@@ -46,98 +46,6 @@ const upright = [
     "17.2",
 ];
 
-const upright_ground_truth_gender = [
-    "masculine",
-    "ambiguous",
-    "masculine",
-    "masculine",
-    "masculine",
-    "ambiguous",
-    "masculine",
-    "ambiguous",
-    "masculine",
-    "masculine",
-    "ambiguous",
-    "feminine",
-    "masculine",
-    "masculine",
-    "ambiguous",
-    "masculine",
-    "masculine",
-    "masculine",
-    "feminine",
-    "ambiguous",
-    "masculine",
-    "masculine",
-    "ambiguous",
-    "feminine",
-    "masculine",
-    "ambiguous",
-    "masculine",
-    "feminine",
-    "masculine",
-    "masculine",
-    "masculine",
-    "ambiguous",
-    "masculine",
-    "masculine",
-    "masculine",
-    "feminine",
-    "masculine",
-    "masculine",
-    "feminine",
-    "feminine",
-    "masculine",
-    "masculine",
-    "ambiguous",
-];
-
-const upright_ground_truth_age = [
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "ambiguous",
-    "adult",
-    "adult",
-    "ambiguous",
-    "adult",
-    "child",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "ambiguous",
-    "adult",
-    "adult",
-    "adult",
-    "child",
-    "child",
-    "adult",
-    "ambiguous",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "ambiguous",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "adult",
-    "child",
-];
-
 const inverted = [
     "26.3",
     "45.3",
@@ -184,7 +92,7 @@ const inverted = [
     "17.3",
 ];
 
-const inverted_ground_truth_gender = [
+const ground_truth_gender = [
     "masculine",
     "ambiguous",
     "masculine",
@@ -230,7 +138,7 @@ const inverted_ground_truth_gender = [
     "ambiguous",
 ];
 
-const inverted_ground_truth_age = [
+const ground_truth_age = [
     "adult",
     "adult",
     "adult",
@@ -326,12 +234,9 @@ for (let i = 0; i < upright.length; i++) {
             correct_response: "1",
             incorrect_response: "0",
         },
-        gender: {
-            ground_truth_gender: inverted_ground_truth_gender[i],
-        },
-        age: {
-            ground_truth_age: inverted_ground_truth_age[i],
-        },
+        gender: { ground_truth_gender: ground_truth_gender[i] },
+
+        age: { ground_truth_age: ground_truth_age[i] },
     });
 }
 for (let i = 0; i < inverted.length; i++) {
@@ -344,12 +249,9 @@ for (let i = 0; i < inverted.length; i++) {
             correct_response: "0",
             incorrect_response: "1",
         },
-        gender: {
-            ground_truth_gender: inverted_ground_truth_gender[i],
-        },
-        age: {
-            ground_truth_age: inverted_ground_truth_age[i],
-        },
+        gender: { ground_truth_gender: ground_truth_gender[i] },
+
+        age: { ground_truth_age: ground_truth_age[i] },
     });
 }
 for (let i = 0; i < catchStim.length; i++) {
@@ -362,6 +264,12 @@ for (let i = 0; i < catchStim.length; i++) {
             correct_response: "0",
             incorrect_response: "1",
         },
+        gender: {
+            ground_truth_gender: "",
+        },
+        age: {
+            ground_truth_age: "",
+        },
     });
 }
 for (let i = 0; i < catchStim.length; i++) {
@@ -373,6 +281,12 @@ for (let i = 0; i < catchStim.length; i++) {
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
+        },
+        gender: {
+            ground_truth_gender: "",
+        },
+        age: {
+            ground_truth_age: "",
         },
     });
 }
