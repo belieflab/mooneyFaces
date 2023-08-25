@@ -235,7 +235,7 @@ for (let i = 0; i < upright.length; i++) {
             incorrect_response: "0",
         },
         gender: {
-            timulus: upright[i],
+            stimulus: upright[i],
             stim: upright[i] + ".jpg",
             test_part: "upright",
             correct_response: "1",
@@ -243,7 +243,7 @@ for (let i = 0; i < upright.length; i++) {
             ground_truth_gender: ground_truth_gender[i],
         },
         age: {
-            timulus: upright[i],
+            stimulus: upright[i],
             stim: upright[i] + ".jpg",
             test_part: "upright",
             correct_response: "1",

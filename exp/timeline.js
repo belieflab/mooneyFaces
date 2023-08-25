@@ -93,7 +93,7 @@ let faces = {
             data.key_press
         );
         // data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-        if (data.test_part == "original" || data.test_part == "inverted") {
+        if (data.test_part == "upright" || data.test_part == "inverted") {
             if (
                 data.key_press ==
                 jsPsych.pluginAPI.convertKeyCharacterToKeyCode(

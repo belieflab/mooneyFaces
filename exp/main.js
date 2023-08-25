@@ -12,7 +12,7 @@ let procedureInstructions = {
 let first_procedure = {
     timeline: [fixation, faces, if_node],
     randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(0, 1),
+    timeline_variables: full_stim_shuffle.slice(0, 10),
 };
 
 let rest = {
