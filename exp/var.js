@@ -220,10 +220,10 @@ for (let i = 0; i < catchStim.length; i++) {
     catch_stimuli_inverted.push(
         "stimuli/scrambled/U0" + catchStim[i] + "-180.png"
     );
-    // console.log(catch_stimuli[i]);
 }
 
 let full_stim = [];
+
 for (let i = 0; i < upright.length; i++) {
     full_stim.push({
         stimulus: upright_stimuli[i],
@@ -234,9 +234,23 @@ for (let i = 0; i < upright.length; i++) {
             correct_response: "1",
             incorrect_response: "0",
         },
-        gender: { ground_truth_gender: ground_truth_gender[i] },
+        gender: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
+            ground_truth_gender: ground_truth_gender[i],
+        },
 
-        age: { ground_truth_age: ground_truth_age[i] },
+        age: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
+            ground_truth_age: ground_truth_age[i],
+        },
     });
 }
 for (let i = 0; i < inverted.length; i++) {
@@ -249,9 +263,23 @@ for (let i = 0; i < inverted.length; i++) {
             correct_response: "0",
             incorrect_response: "1",
         },
-        gender: { ground_truth_gender: ground_truth_gender[i] },
+        gender: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
+            ground_truth_gender: ground_truth_gender[i],
+        },
 
-        age: { ground_truth_age: ground_truth_age[i] },
+        age: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
+            ground_truth_age: ground_truth_age[i],
+        },
     });
 }
 for (let i = 0; i < catchStim.length; i++) {
@@ -265,9 +293,19 @@ for (let i = 0; i < catchStim.length; i++) {
             incorrect_response: "1",
         },
         gender: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
             ground_truth_gender: "",
         },
         age: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
             ground_truth_age: "",
         },
     });
@@ -283,12 +321,22 @@ for (let i = 0; i < catchStim.length; i++) {
             incorrect_response: "1",
         },
         gender: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
             ground_truth_gender: "",
         },
         age: {
+            stimulus: catchStim[i] + "-180.png",
+            stim: "U0" + catchStim[i] + "-180.png",
+            test_part: "catch",
+            correct_response: "0",
+            incorrect_response: "1",
             ground_truth_age: "",
         },
     });
 }
 
-let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled array no repeats
+const full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1); //shuffled array no repeats

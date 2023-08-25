@@ -57,7 +57,7 @@ let instructions_5 = {
 
 let faces = {
     type: "html-keyboard-response",
-    stimulus: function () {
+    stimulus: () => {
         var html =
             "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='" +
             jsPsych.timelineVariable("stimulus", true) +
@@ -79,7 +79,7 @@ let faces = {
     stimulus_height: 225,
     stimulus_width: 225,
     data: jsPsych.timelineVariable("data"),
-    on_finish: function (data) {
+    on_finish: (data) => {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
         data.site = siteNumber;
@@ -151,7 +151,7 @@ let faces = {
 
 let gender = {
     type: "html-keyboard-response",
-    stimulus: function () {
+    stimulus: () => {
         // var html = "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>"+
         var html =
             "<br>" +
@@ -168,7 +168,7 @@ let gender = {
     },
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("gender"),
-    on_finish: function (data) {
+    on_finish: (data) => {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
         data.site = siteNumber;
@@ -200,7 +200,7 @@ let gender = {
 
 let age = {
     type: "html-keyboard-response",
-    stimulus: function () {
+    stimulus: () => {
         // var html = "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='"+jsPsych.timelineVariable('stimulus', true)+"'>"+
         var html =
             "<br>" +
@@ -217,7 +217,7 @@ let age = {
     },
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("age"),
-    on_finish: function (data) {
+    on_finish: (data) => {
         data.subjectkey = GUID;
         data.src_subject_id = workerId;
         data.site = siteNumber;
@@ -250,7 +250,7 @@ let age = {
 
 var if_node = {
     timeline: [gender, age],
-    conditional_function: function () {
+    conditional_function: () => {
         // get the data from the previous trial,
         // and check which key was pressed
         var data = jsPsych.data.get().last(1).values()[0];
@@ -311,10 +311,10 @@ let save_data = {
 
     choices: jsPsych.NO_KEYS,
     trial_duration: 5000,
-    on_finish: function () {
+    on_finish: () => {
         saveData("mooney_" + workerId, jsPsych.data.get().csv());
         document.getElementById("unload").onbeforeunload = "";
-        $(document).ready(function () {
+        $(document).ready(() => {
             $("body").addClass("showCursor"); // returns cursor functionality
         });
     },
