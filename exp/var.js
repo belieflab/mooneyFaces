@@ -184,7 +184,7 @@ const ground_truth_age = [
     "child",
 ];
 
-const catchStim = [
+const scrambled = [
     "042",
     "177",
     "213",
@@ -210,15 +210,15 @@ for (let i = 0; i < inverted.length; i++) {
 }
 
 let catch_stimuli = [];
-for (let i = 0; i < catchStim.length; i++) {
-    catch_stimuli.push("stimuli/scrambled/U0" + catchStim[i] + ".png");
+for (let i = 0; i < scrambled.length; i++) {
+    catch_stimuli.push("stimuli/scrambled/U0" + scrambled[i] + ".png");
     // console.log(catch_stimuli[i]);
 }
 
 let catch_stimuli_inverted = [];
-for (let i = 0; i < catchStim.length; i++) {
+for (let i = 0; i < scrambled.length; i++) {
     catch_stimuli_inverted.push(
-        "stimuli/scrambled/U0" + catchStim[i] + "-180.png"
+        "stimuli/scrambled/U0" + scrambled[i] + "-180.png"
     );
 }
 
@@ -235,24 +235,24 @@ for (let i = 0; i < upright.length; i++) {
             incorrect_response: "0",
         },
         gender: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
-            test_part: "catch",
-            correct_response: "0",
-            incorrect_response: "1",
+            timulus: upright[i],
+            stim: upright[i] + ".jpg",
+            test_part: "upright",
+            correct_response: "1",
+            incorrect_response: "0",
             ground_truth_gender: ground_truth_gender[i],
         },
-
         age: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
-            test_part: "catch",
-            correct_response: "0",
-            incorrect_response: "1",
+            timulus: upright[i],
+            stim: upright[i] + ".jpg",
+            test_part: "upright",
+            correct_response: "1",
+            incorrect_response: "0",
             ground_truth_age: ground_truth_age[i],
         },
     });
 }
+
 for (let i = 0; i < inverted.length; i++) {
     full_stim.push({
         stimulus: inverted_stimuli[i],
@@ -264,45 +264,45 @@ for (let i = 0; i < inverted.length; i++) {
             incorrect_response: "1",
         },
         gender: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
-            test_part: "catch",
+            stimulus: inverted[i],
+            stim: inverted[i] + ".jpg",
+            test_part: "inverted",
             correct_response: "0",
             incorrect_response: "1",
             ground_truth_gender: ground_truth_gender[i],
         },
-
         age: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
-            test_part: "catch",
+            stimulus: inverted[i],
+            stim: inverted[i] + ".jpg",
+            test_part: "inverted",
             correct_response: "0",
             incorrect_response: "1",
             ground_truth_age: ground_truth_age[i],
         },
     });
 }
-for (let i = 0; i < catchStim.length; i++) {
+
+for (let i = 0; i < scrambled.length; i++) {
     full_stim.push({
         stimulus: catch_stimuli[i],
         data: {
-            stimulus: catchStim[i],
-            stim: "U0" + catchStim[i] + ".png",
+            stimulus: scrambled[i],
+            stim: "U0" + scrambled[i] + ".png",
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
         },
         gender: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
+            stimulus: scrambled[i],
+            stim: "U0" + scrambled[i] + ".png",
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
             ground_truth_gender: "",
         },
         age: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
+            stimulus: scrambled[i],
+            stim: "U0" + scrambled[i] + ".png",
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
@@ -310,27 +310,27 @@ for (let i = 0; i < catchStim.length; i++) {
         },
     });
 }
-for (let i = 0; i < catchStim.length; i++) {
+for (let i = 0; i < scrambled.length; i++) {
     full_stim.push({
         stimulus: catch_stimuli_inverted[i],
         data: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
+            stimulus: scrambled[i] + "-180.png",
+            stim: "U0" + scrambled[i] + "-180.png",
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
         },
         gender: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
+            stimulus: scrambled[i] + "-180.png",
+            stim: "U0" + scrambled[i] + "-180.png",
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
             ground_truth_gender: "",
         },
         age: {
-            stimulus: catchStim[i] + "-180.png",
-            stim: "U0" + catchStim[i] + "-180.png",
+            stimulus: scrambled[i] + "-180.png",
+            stim: "U0" + scrambled[i] + "-180.png",
             test_part: "catch",
             correct_response: "0",
             incorrect_response: "1",
