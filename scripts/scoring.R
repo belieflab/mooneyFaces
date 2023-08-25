@@ -134,10 +134,10 @@ mooneyFacesPerformance <- function(data = mooney_faces){
     ## faces upright (%)
     
     # extract all faces upright trials
-    upright_trials <- mooney_faces[[i]][which(mooney_faces[[i]]$test_part == "original" & !is.na(mooney_faces[[i]]$response_face)),]
+    upright_trials <- mooney_faces[[i]][which(mooney_faces[[i]]$test_part == "upright" & !is.na(mooney_faces[[i]]$response_face)),]
     
     # this solution interpolates NA values per Brian Keane
-    missed_upright_trials <- mooney_faces[[i]][which(mooney_faces[[i]]$test_part == "original" & is.na(mooney_faces[[i]]$response_face) & is.na(mooney_faces[[i]]$accuracy_face)& is.na(mooney_faces[[i]]$response_gender) & is.na(mooney_faces[[i]]$response_age)),]
+    missed_upright_trials <- mooney_faces[[i]][which(mooney_faces[[i]]$test_part == "upright" & is.na(mooney_faces[[i]]$response_face) & is.na(mooney_faces[[i]]$accuracy_face)& is.na(mooney_faces[[i]]$response_gender) & is.na(mooney_faces[[i]]$response_age)),]
     
     #set.seed(123) # set the seed value to 123 (you can use any value you want)
     
