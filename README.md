@@ -4,7 +4,7 @@ This task presents a randomized array of 48 images of faces; half of the faces a
 
 The participant is prompted to respond whether the image present was or was not a face, within 5 seconds.
 
-The Silverstein version adds 2 additional ratings:
+The Silverstein version adds 2 additional "forced choice" ratings:
     1) whether the face appears to be an adult or child, and
     2) whether the face appears to be more masculine or more feminine;
 should the participant identifies an image as a face, regardless of its ground truth (upright or inverted).
