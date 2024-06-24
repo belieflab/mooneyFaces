@@ -1,4 +1,4 @@
-# mooneyFaces
+# Mooney Faces (mooney)
 
 ## Overview
 Participants will see black and white images and decide whether they think the image is a face. They will press ‘0’ if they think it is not a face and ‘1’ if they do.  
