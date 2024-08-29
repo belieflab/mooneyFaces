@@ -10,12 +10,8 @@ Note: Participants cannot use their number pad for this task, they must use the 
 _The Mooney Faces Task presents a randomized array of 48 images with a break in between. The total administration time should last no longer than 8 minutes._
 
 
-## Installation:
-
-Once you have copied the repository, adjust the permissions to allow access to the code.
+## Cloning: 
+```
+git clone --recurse-submodules -j4 git@github.com:belieflab/mooneyFaces.git && cd mooneyFaces && git submodule foreach --recursive 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo main)' && git update-index --assume-unchanged exp/conf.js 
     
-    sudo chmod -R 755 mooneyFaces/
-    sudo chmod -R 777 mooneyFaces/data
-
-    
-
+```
