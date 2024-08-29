@@ -1,4 +1,10 @@
 .DS_Store
 data/*
 !data/.gitkeep
+scripts/tmp/*
+!scripts/tmp/.gitkeep
+output/*
+!output/.gitkeep
 .Rproj.user
+._*
+.Rhistory

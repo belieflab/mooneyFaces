@@ -5,13 +5,13 @@
   <div id="intake">
     <p><b>Research Site:</b></p>
     <select name="facility" id="siteid">
-        <option value="none">---</option>
-        <option value="Maryland">UMBC</option>
+        <option default value="URMC">URMC</option>
+        <!-- <option value="Maryland">UMBC</option>
         <option value="Northwestern">NU</option>
         <option value="Temple">Temple</option>
         <option value="Georgia">UGA</option>
         <option value="Yale">Yale</option>
-        <option value="Emory">Emory</option>
+        <option value="Emory">Emory</option> -->
     </select>
     <label for="facility"></label>
     <!-- <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
@@ -24,30 +24,24 @@
     </form> -->
     <form action="<?php echo SIGNUP_VIEW ?>/post/intakeadd.php" method="post">
     <p><b>Subject ID:</b></p>
-    <input required id="subjectid" type="text" name="subjectid" minlength="5" maxlength="5">
+    <input required id="subjectid" type="text" name="subjectid" minlength="6" maxlength="6">
     
     <!-- GUID -->
-    <p><b>GUID:</b></p>
-    <input required id="guid" type="text" name="guid" minlength="12" maxlength="12">
+    <!-- <p><b>GUID:</b></p>
+    <input required id="guid" type="text" name="guid" minlength="12" maxlength="12"> -->
     <!-- <input required type="hidden" id="guid" name="guid" value="< ?php echo $guid ?>"> -->
 
     </form>
     <!-- <button onclick="submitIntake()">submit subjectid</button> -->
-    <p><b>Date of Birth:</b></p>
+    <!-- <p><b>Date of Birth:</b></p> -->
     <!-- <p><b>Enter as MM/DD/YYYY</b></p> -->
     <!-- <p style="color:red">*must provide value</p> -->
-    <input required id="dob" type="date">
+    <!-- <input required id="dob" type="date"> -->
     <!-- <form>
     <p><b>Age:</b></p>
     <input required id="age" type="text" name="currentage" plattern="\d*" minlength="1" maxlength="3">
     </form> -->
-    <form>
-    <p><strong>Sex at Birth:</strong></p>
-    <label for="male">Male</label>
-    <input type="radio" id="male" name="sex" value="male" onclick="validateSex(this.value)">
-    <label for="female">Female</label>
-    <input type="radio" id="female" name="sex" value="female" onclick="validateSex(this.value)">
-    </form>
+ 
     <form>
 
 <form>
@@ -85,7 +79,7 @@
   </label>
 </form>
 <br> -->
-<button id="submitButton" class="loadMain" onclick="validateSite(), validateSubject(), validateGUID(), validateAge(), validateSex(), validateHandedness(), validateBrightness(), /*validateHeadphones(), validateVolume(),*/ submitIntake()" type="button">SUBMIT</button>
+<button id="submitButton" class="loadMain" onclick="validateSite(), validateSubject(), validateHandedness(), validateBrightness(), /*validateHeadphones(), validateVolume(),*/ submitIntake()" type="button">SUBMIT</button>
 </div>
 <div id="validation" style="display: none">
     <br>
@@ -95,8 +89,9 @@
 <div>
 
 <div id="load" style="display: none">
-<h3>All validation rules were passed successfully. Click to load the experiment.</h3>
-<button id="nextButton" class="noCursor" onclick="startExperiment()">LOAD</button>
+<h3>All validation rules were passed successfully!</h3>
+<h3>Please keep your browser in fullscreen for the duration of the experiment.</h3>
+<h3>Click to load the experiment.</h3><button id="nextButton" class="noCursor" onclick="startExperiment()">LOAD</button>
 <!-- <p id="nextButton" style="display: none" >please make sure you are in a quiet place. When you are ready to begin, click 'START'</p> -->
 <br>
 </div>
