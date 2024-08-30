@@ -6,17 +6,15 @@ git clone --recurse-submodules -j4 git@github.com:belieflab/mooneyFaces.git && c
 
 ## Overview 
 
-This task presents a randomized array of 48 images of faces; half of the faces are upright and half are inverted.
+In this task, participants will view a randomized array of 48 black and white images, half of which are upright faces and the other half inverted. Participants must decide whether they think each image is a face. Pressing ‘0’ for "not a face" & Pressing ‘1’ for "face." Responses must be made within 5 seconds.
 
-The participant is prompted to respond whether the image present was or was not a face, within 5 seconds.
+For images identified as faces, participants will also make two additional "forced choice" ratings:
 
-The Silverstein version adds 2 additional "forced choice" ratings:
-1. whether the face appears to be an adult or child, and
-2. whether the face appears to be more masculine or more feminine;
-should the participant identifies an image as a face, regardless of its ground truth (upright or inverted).
+- Does the face appear to be an adult or a child?
+- Does the face appear more masculine or more feminine?
 
-The Silverstein version also adds 10 inverted and 10 upright catch images which should never be construed as a face.
+Note: Participants must use the numbers at the top of the keyboard, not the number pad.
 
-The total administration time should last no longer than 15 minutes. 
+Approximate Run Time: The task will last no longer than 15 minutes, including a break.
 
-Note: Participants cannot use their number pad for this task, they must use the numbers at the top of the keyboard. 
+This is the Silverstein version - it includes an additional 20 catch images (10 inverted and 10 upright) that should never be construed as faces.
