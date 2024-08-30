@@ -15,7 +15,7 @@
     <script src="jsPsych/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jsPsych/plugins/jspsych-image-keyboard-response.js"></script>
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/exp.css">
   </head>
   <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;"> 
     <?php
