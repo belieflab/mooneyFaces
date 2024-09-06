@@ -14,8 +14,13 @@
     <script src="jsPsych/jspsych.js"></script>
     <script src="jsPsych/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jsPsych/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jsPsych/jspsych.js"></script>
+    <link rel="stylesheet" href="jsPsych/css/jspsych.css">
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/exp.css">
+
+    <!-- Add your configuration file here -->
+    <script src="exp/conf.js"></script> <!-- Update the path as necessary -->
   </head>
   <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;"> 
     <?php
@@ -58,6 +63,9 @@
         groupStatus = "<?php echo $groupStatus?>";
         feedbackLink = "https://belieflab.yale.edu/omnibus/eCRFs/feedback/tasks/mooney.php?candidateId=<?php echo $candidateId?>&studyId=<?php echo $studyId?>";
       }
+
+      // Ensure conf.js variable `version` is available
+      startExperiment(); // Call your start function here
     </script>
   </footer>
 </html>
