@@ -1,4 +1,4 @@
-let silverstein_master = silverstein_master || [];
+let timline = [];
 
 /* Define welcome message trial */
 let welcome = {

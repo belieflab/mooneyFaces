@@ -1,5 +1,3 @@
-"use strict";
-
 // Dynamically load the appropriate variable file based on the version
 switch (version) {
     case "silverstein":

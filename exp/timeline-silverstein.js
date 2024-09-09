@@ -1,4 +1,4 @@
-let silverstein_timeline = silverstein_timeline || [];
+let timeline = [];
 
 // Define welcome message trial
 let welcome = {

@@ -29,9 +29,6 @@ let second_procedure = {
     timeline_variables: full_stim_shuffle.slice(53, 106) // Ensure the range is correct
 };
 
-// Create the timeline array for the entire experiment
-let timeline = [];
-
 // Add welcome screen
 timeline.push(welcome);
 
@@ -54,3 +51,8 @@ timeline.push(save_data);
 timeline.push(end);
 
 // Make sure the `timeline` array is passed correctly to jsPsych.init when the experiment starts
+// don't allow experiment to start unless subjectId is set
+if (subjectId) {
+    // New jsPsych 7.x syntax
+    jsPsych.run(timeline);
+}

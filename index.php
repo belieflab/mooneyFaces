@@ -19,8 +19,6 @@
     <link href="jsPsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/exp.css">
 
-    <!-- Add your configuration file here -->
-    <script src="exp/conf.js"></script> <!-- Update the path as necessary -->
   </head>
   <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;"> 
     <?php
@@ -34,8 +32,9 @@
     ?>
   </body>
   <footer>
+    <script src="exp/conf.js"></script>
     <script src="exp/fn.js"></script>
-    <script src="exp/var.js"></script>
+    <script src="exp/var.php"></script>
     <script type="text/javascript">
       // declare NDA required variables
       let GUID;
@@ -63,9 +62,6 @@
         groupStatus = "<?php echo $groupStatus?>";
         feedbackLink = "https://belieflab.yale.edu/omnibus/eCRFs/feedback/tasks/mooney.php?candidateId=<?php echo $candidateId?>&studyId=<?php echo $studyId?>";
       }
-
-      // Ensure conf.js variable `version` is available
-      startExperiment(); // Call your start function here
     </script>
   </footer>
 </html>

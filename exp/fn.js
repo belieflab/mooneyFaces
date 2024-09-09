@@ -7,26 +7,7 @@ function saveData(name, data) {
 }
 
 // Function to start the experiment
-function startExperiment() {
-    // Use the global variable `version` directly from conf.js
-    switch (version) {
-        case "master":
-            $.getScript("exp/timeline-master.js", function() {
-                initializeExperiment(master_timeline);
-            });
-            break;
-        case "silverstein":
-            $.getScript("exp/timeline-silverstein.js", function() {
-                initializeExperiment(silverstein_timeline);
-            });
-            break;
-        default:
-            console.error("Unknown version: " + version);
-    }
-}
-
-// Function to initialize the experiment after the timeline is loaded
-function initializeExperiment(timeline) {
+function startExperiment(timeline) {
     // Preload images using jsPsych 7 preload plugin
     let preload = {
         type: jsPsychPreload,
