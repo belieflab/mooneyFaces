@@ -27,8 +27,3 @@ function startExperiment(timeline) {
         }
     });
 }
-
-// Function to warn user when they try to leave the page
-function areYouSure() {
-    return "Are you sure you want to leave the experiment?";
-}

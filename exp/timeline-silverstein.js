@@ -1,3 +1,5 @@
+"use strict";
+
 let timeline = [];
 
 // Define welcome message trial

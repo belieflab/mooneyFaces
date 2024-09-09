@@ -1,4 +1,6 @@
-let timline = [];
+"use strict";
+
+let timeline = [];
 
 /* Define welcome message trial */
 let welcome = {
