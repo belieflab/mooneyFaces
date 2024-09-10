@@ -2,6 +2,13 @@
 
 let timeline = [];
 
+const jsPsych = initJsPsych({
+    timeline: timeline,
+    show_progress_bar: true,
+    preload_images: [original_stimuli, inverted_stimuli],
+});
+
+
 // Define welcome message trial
 let welcome = {
     type: jsPsychHtmlKeyboardResponse,
@@ -146,7 +153,7 @@ let if_node = {
 let fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: '<div style="color:white; font-size:30px;">+</div>',
-    choices: jsPsych.NO_KEYS,
+    choices: "NO_KEYS",
     trial_duration: 1000,
     data: { test_part: "fixation" },
 };
@@ -177,7 +184,7 @@ let save_data = {
         "<div class='sk-cube sk-cube9'></div>" +
         "</div>" +
         "<p style='color:white;'>Do not close this window until the text disappears.</p>",
-    choices: jsPsych.NO_KEYS,
+   choices: "NO_KEYS",
     trial_duration: 5000,
     on_finish: () => {
         saveData("mooney_" + workerId, jsPsych.data.get().csv());
@@ -194,7 +201,7 @@ let end = {
         "<p style='color:white;'>Thank you!</p>" +
         "<p style='color:white;'>You have successfully completed the experiment and your data has been saved.</p>" +
         "<p style='color:white;'><i>You may now close the experiment window at any time.</i></p>",
-    choices: jsPsych.NO_KEYS,
+choices: "NO_KEYS",
 };
 
 // Call the main experiment setup

@@ -1,3 +1,19 @@
+// Debugging statement to check if full_stim_shuffle is defined
+if (typeof full_stim_shuffle === 'undefined') {
+    console.error('full_stim_shuffle is not defined!!!!!!!!!!!!!');
+} else {
+    console.log('full_stim_shuffle is defined');
+}
+
+// let timeline = [];
+
+// let welcome = {
+//     type: jsPsychHtmlKeyboardResponse,
+//     stimulus:
+//         '<h2 style="color:white;">Welcome to the experiment!</h2>' +
+//         '<p style="color:white;"><i>Press any key to begin.</i></p>',
+// };
+
 // Procedure instructions timeline
 let procedureInstructions = {
     timeline: [
@@ -50,9 +66,5 @@ timeline.push(save_data);
 // Add end screen/sequence (ensure end is a valid timeline object or plugin)
 timeline.push(end);
 
-// Make sure the `timeline` array is passed correctly to jsPsych.init when the experiment starts
-// don't allow experiment to start unless subjectId is set
-if (subjectId) {
-    // New jsPsych 7.x syntax
-    jsPsych.run(timeline);
-}
+// New jsPsych 7.x syntax
+jsPsych.run(timeline);
