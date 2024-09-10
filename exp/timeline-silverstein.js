@@ -8,13 +8,120 @@ const jsPsych = initJsPsych({
     preload_images: [original_stimuli, inverted_stimuli],
 });
 
-
 // Define welcome message trial
 let welcome = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus:
         '<h2 style="color:white;">Welcome to the experiment!</h2>' +
         '<p style="color:white;"><i>Press any key to begin.</i></p>',
+};
+
+// Fixation cross trial
+let fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '<div style="color:white; font-size:30px;">+</div>',
+    choices: "NO_KEYS",
+    trial_duration: 1000,
+    data: { test_part: "fixation" },
+};
+
+// Define face stimuli trial
+let faces = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: () => {
+        return (
+            "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='" +
+            jsPsych.timelineVariable("stimulus", true) +
+            "'>" +
+            "<p style='color:white;'><b>Face</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Not a Face</b> (press 0)</p>"
+        );
+    },
+    choices: ["1", "0"],
+    trial_duration: 5000,
+    data: jsPsych.timelineVariable("data"),
+    on_finish: (data) => {
+        data.subjectkey = GUID;
+        data.src_subject_id = workerId;
+        data.site = siteNumber;
+        data.interview_date = today;
+        data.interview_age = ageAtAssessment;
+        data.sex = sexAtBirth;
+        data.phenotype = groupStatus;
+        data.handedness = handedness;
+        data.index = experimentIterator;
+        data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
+        // Accuracy handling based on test_part (upright/inverted/catch)
+        if (["upright", "inverted", "catch"].includes(data.test_part)) {
+            data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+        }
+    },
+};
+
+// Gender rating trial
+let gender = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: () => {
+        return "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>";
+    },
+    choices: ["1", "0"],
+    data: jsPsych.timelineVariable("gender"),
+    on_finish: (data) => {
+        // data.subjectkey = GUID;
+        data.src_subject_id = workerId;
+        data.site = siteNumber;
+        data.interview_date = today;
+        data.interview_age = ageAtAssessment;
+        data.sex = sexAtBirth;
+        data.phenotype = groupStatus;
+        data.handedness = handedness;
+        data.index = experimentIterator;
+        data.response_gender = data.key_press == "1" ? "masculine" : "feminine";
+    },
+};
+
+// Age rating trial
+let age = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: () => {
+        return "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>";
+    },
+    choices: ["1", "0"],
+    data: jsPsych.timelineVariable("age"),
+    on_finish: (data) => {
+        // data.subjectkey = GUID;
+        data.src_subject_id = workerId;
+        data.site = siteNumber;
+        data.interview_date = today;
+        data.interview_age = ageAtAssessment;
+        data.sex = sexAtBirth;
+        data.phenotype = groupStatus;
+        data.handedness = handedness;
+        data.index = experimentIterator;
+        experimentIterator++;
+        data.response_age = data.key_press == "1" ? "child" : "adult";
+    },
+};
+
+// Conditional node for additional trials based on previous response
+let if_node = {
+    timeline: [gender, age],
+    conditional_function: () => {
+        var data = jsPsych.data.get().last(1).values()[0];
+        return data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode("1");
+    },
+};
+
+// First block of trials
+let first_procedure = {
+    timeline: [fixation, faces, if_node],
+    randomize_order: false,
+    timeline_variables: full_stim_shuffle.slice(0, 53) // Ensure full_stim_shuffle is defined
+};
+
+let second_procedure = {
+    timeline: [fixation, faces, if_node],
+    randomize_order: false,
+    timeline_variables: full_stim_shuffle.slice(53, 106) // Ensure the range is correct
 };
 
 // Define instruction trials
@@ -63,101 +170,6 @@ let instructions_5 = {
     choices: [" "], // Updated spacebar key
 };
 
-// Define face stimuli trial
-let faces = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: () => {
-        return (
-            "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='" +
-            jsPsych.timelineVariable("stimulus", true) +
-            "'>" +
-            "<p style='color:white;'><b>Face</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Not a Face</b> (press 0)</p>"
-        );
-    },
-    choices: ["1", "0"],
-    trial_duration: 5000,
-    data: jsPsych.timelineVariable("data"),
-    on_finish: (data) => {
-        data.subjectkey = GUID;
-        data.src_subject_id = workerId;
-        data.site = siteNumber;
-        data.interview_date = today;
-        data.interview_age = ageAtAssessment;
-        data.sex = sexAtBirth;
-        data.phenotype = groupStatus;
-        data.handedness = handedness;
-        data.index = experimentIterator;
-        data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
-        // Accuracy handling based on test_part (upright/inverted/catch)
-        if (["upright", "inverted", "catch"].includes(data.test_part)) {
-            data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-        }
-    },
-};
-
-// Gender rating trial
-let gender = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: () => {
-        return "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>";
-    },
-    choices: ["1", "0"],
-    data: jsPsych.timelineVariable("gender"),
-    on_finish: (data) => {
-        data.subjectkey = GUID;
-        data.src_subject_id = workerId;
-        data.site = siteNumber;
-        data.interview_date = today;
-        data.interview_age = ageAtAssessment;
-        data.sex = sexAtBirth;
-        data.phenotype = groupStatus;
-        data.handedness = handedness;
-        data.index = experimentIterator;
-        data.response_gender = data.key_press == "1" ? "masculine" : "feminine";
-    },
-};
-
-// Age rating trial
-let age = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: () => {
-        return "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>";
-    },
-    choices: ["1", "0"],
-    data: jsPsych.timelineVariable("age"),
-    on_finish: (data) => {
-        data.subjectkey = GUID;
-        data.src_subject_id = workerId;
-        data.site = siteNumber;
-        data.interview_date = today;
-        data.interview_age = ageAtAssessment;
-        data.sex = sexAtBirth;
-        data.phenotype = groupStatus;
-        data.handedness = handedness;
-        data.index = experimentIterator;
-        experimentIterator++;
-        data.response_age = data.key_press == "1" ? "child" : "adult";
-    },
-};
-
-// Conditional node for additional trials based on previous response
-let if_node = {
-    timeline: [gender, age],
-    conditional_function: () => {
-        var data = jsPsych.data.get().last(1).values()[0];
-        return data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode("1");
-    },
-};
-
-// Fixation cross trial
-let fixation = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: '<div style="color:white; font-size:30px;">+</div>',
-    choices: "NO_KEYS",
-    trial_duration: 1000,
-    data: { test_part: "fixation" },
-};
-
 // Break trial
 let breaking = {
     type: jsPsychHtmlKeyboardResponse,
@@ -165,6 +177,11 @@ let breaking = {
         '<h3 style="color:white;">You are now on a halfway break.</h3>' +
         '<p style="color:white;"><i>Press the spacebar when you are ready to continue.</i></p>',
     choices: [" "],
+};
+
+// Break period
+let rest = {
+    timeline: [breaking]
 };
 
 // Save data and display saving message
@@ -202,6 +219,18 @@ let end = {
         "<p style='color:white;'>You have successfully completed the experiment and your data has been saved.</p>" +
         "<p style='color:white;'><i>You may now close the experiment window at any time.</i></p>",
 choices: "NO_KEYS",
+};
+
+// Procedure instructions timeline
+let procedureInstructions = {
+    timeline: [
+        instructions_1,
+        instructions_2,
+        instructions_3,
+        instructions_4,
+        instructions_5,
+    ],
+    randomize_order: false
 };
 
 // Call the main experiment setup

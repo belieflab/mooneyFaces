@@ -5,45 +5,17 @@ if (typeof full_stim_shuffle === 'undefined') {
     console.log('full_stim_shuffle is defined');
 }
 
-// let timeline = [];
-
-// let welcome = {
-//     type: jsPsychHtmlKeyboardResponse,
-//     stimulus:
-//         '<h2 style="color:white;">Welcome to the experiment!</h2>' +
-//         '<p style="color:white;"><i>Press any key to begin.</i></p>',
+// // Break period
+// let rest = {
+//     timeline: [breaking]
 // };
 
-// Procedure instructions timeline
-let procedureInstructions = {
-    timeline: [
-        instructions_1,
-        instructions_2,
-        instructions_3,
-        instructions_4,
-        instructions_5,
-    ],
-    randomize_order: false
-};
-
-// First block of trials
-let first_procedure = {
-    timeline: [fixation, faces, if_node],
-    randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(0, 53) // Ensure full_stim_shuffle is defined
-};
-
-// Break period
-let rest = {
-    timeline: [breaking]
-};
-
 // Second block of trials
-let second_procedure = {
-    timeline: [fixation, faces, if_node],
-    randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(53, 106) // Ensure the range is correct
-};
+// let second_procedure = {
+//     timeline: [fixation, faces, if_node],
+//     randomize_order: false,
+//     timeline_variables: full_stim_shuffle.slice(53, 106) // Ensure the range is correct
+// };
 
 // Add welcome screen
 timeline.push(welcome);
