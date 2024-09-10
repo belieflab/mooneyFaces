@@ -23,7 +23,7 @@ const upright_ground_truth = Array(upright.length).fill(""); // Assuming you mig
 // const inverted_ground_truth = Array(inverted.length).fill("");
 
 // Generate the upright and inverted stimuli paths
-let upright_stimuli = upright.map((stim) => `stimuli/original/my_bitmap${stim}.jpg`);
+// let upright_stimuli = upright.map((stim) => `./stimuli/upright/my_bitmap${stim}.jpg`);
 // let inverted_stimuli = inverted.map((stim) => `stimuli/inverted/my_bitmap${stim}.jpg`);
 
 // Create the full stimuli list with appropriate data

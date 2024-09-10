@@ -44,8 +44,8 @@ const ground_truth_age = [
 const scrambled = ["042", "177", "213", "217", "232", "233", "257", "259", "799", "807"];
 
 // Create stimuli lists
-// let upright_stimuli = upright.map((stim) => `stimuli/upright/my_bitmap${stim}.jpg`);
-// let inverted_stimuli = inverted.map((stim) => `stimuli/inverted/my_bitmap${stim}.jpg`);
+let upright_stimuli = upright.map((stim) => `./stimuli/upright/my_bitmap${stim}.jpg`);
+// let inverted_stimuli = inverted.map((stim) => `./stimuli/inverted/my_bitmap${stim}.jpg`);
 let catch_stimuli = scrambled.map((stim) => `stimuli/scrambled/U0${stim}.png`);
 let catch_stimuli_inverted = scrambled.map((stim) => `stimuli/scrambled/U0${stim}-180.png`);
 
