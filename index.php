@@ -1,3 +1,7 @@
+<?php
+  require_once './wrap/lib/ids.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +31,11 @@
 <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;">
     <?php
       if (isset($_GET["workerId"])) {
-        include_once "include/con.php";
+        include_once "./wrap/include/start.php";
       } else if (isset($_GET["src_subject_id"])) {
-        include_once "include/nda.php";
+        include_once "./wrap/include/nda.php";
       } else {
-        include_once "include/intake.php";
+        include_once "./wrap/include/intake.php";
       }
     ?>
 </body>

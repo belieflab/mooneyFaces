@@ -33,13 +33,13 @@ const inverted_ground_truth = [];
 
 let original_stimuli = [];
 for (let i = 0; i < original.length ; i++){
-  original_stimuli.push("stimuli/original/my_bitmap" + original[i] + ".jpg");
+  original_stimuli.push("./stimuli/upright/my_bitmap" + original[i] + ".jpg");
   // console.log(original_stimuli[i]);
 }
 
 let inverted_stimuli = [];
 for (let i = 0; i < inverted.length ; i++){
-  inverted_stimuli.push("stimuli/inverted/my_bitmap" + inverted[i] + ".jpg");
+  inverted_stimuli.push("./stimuli/inverted/my_bitmap" + inverted[i] + ".jpg");
   // console.log(inverted_stimuli[i]);
 }
 

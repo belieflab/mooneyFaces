@@ -40,20 +40,25 @@ let faces = {
     trial_duration: 5000,
     data: jsPsych.timelineVariable("data"),
     on_finish: (data) => {
-        data.subjectkey = GUID;
+        // data.subjectkey = GUID;
         data.src_subject_id = workerId;
-        data.site = siteNumber;
-        data.interview_date = today;
-        data.interview_age = ageAtAssessment;
-        data.sex = sexAtBirth;
-        data.phenotype = groupStatus;
-        data.handedness = handedness;
+        // data.site = siteNumber;
+        // data.interview_date = today ;
+        // data.interview_age = ageAtAssessment; 
+        // data.sex = sexAtBirth;
+        // data.phenotype = groupStatus;
+        // data.handedness = handedness;
         data.index = experimentIterator;
-        data.response_face = jsPsych.pluginAPI.convertKeyCodeToKeyCharacter(data.key_press);
+        data.response_face = String.fromCharCode(data.key_press);
         // Accuracy handling based on test_part (upright/inverted/catch)
         if (["upright", "inverted", "catch"].includes(data.test_part)) {
-            data.accuracy_face = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+            // Convert the key_press to the corresponding character
+            const keyChar = String.fromCharCode(data.key_press);
+
+            // Compare the key press with the correct response
+            data.accuracy_face = keyChar === data.correct_response;
         }
+
     },
 };
 
@@ -68,12 +73,12 @@ let gender = {
     on_finish: (data) => {
         // data.subjectkey = GUID;
         data.src_subject_id = workerId;
-        data.site = siteNumber;
-        data.interview_date = today;
-        data.interview_age = ageAtAssessment;
-        data.sex = sexAtBirth;
-        data.phenotype = groupStatus;
-        data.handedness = handedness;
+        // data.site = siteNumber;
+        // data.interview_date = today;
+        // data.interview_age = ageAtAssessment;
+        // data.sex = sexAtBirth;
+        // data.phenotype = groupStatus;
+        // data.handedness = handedness;
         data.index = experimentIterator;
         data.response_gender = data.key_press == "1" ? "masculine" : "feminine";
     },
@@ -88,14 +93,14 @@ let age = {
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("age"),
     on_finish: (data) => {
-        // data.subjectkey = GUID;
+        // data.subjectkey = GUID; 
         data.src_subject_id = workerId;
-        data.site = siteNumber;
-        data.interview_date = today;
-        data.interview_age = ageAtAssessment;
-        data.sex = sexAtBirth;
-        data.phenotype = groupStatus;
-        data.handedness = handedness;
+        // data.site = siteNumber;
+        // data.interview_date = today;
+        // data.interview_age = ageAtAssessment;
+        // data.sex = sexAtBirth;
+        // data.phenotype = groupStatus;
+        // data.handedness = handedness;
         data.index = experimentIterator;
         experimentIterator++;
         data.response_age = data.key_press == "1" ? "child" : "adult";
@@ -107,8 +112,7 @@ let if_node = {
     timeline: [gender, age],
     conditional_function: () => {
         var data = jsPsych.data.get().last(1).values()[0];
-        return data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode("1");
-    },
+        return data.key_press == 49;     },
 };
 
 // First block of trials
