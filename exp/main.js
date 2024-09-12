@@ -1,22 +1,3 @@
-// Debugging statement to check if full_stim_shuffle is defined
-if (typeof full_stim_shuffle === 'undefined') {
-    console.error('full_stim_shuffle is not defined!!!!!!!!!!!!!');
-} else {
-    console.log('full_stim_shuffle is defined');
-}
-
-// // Break period
-// let rest = {
-//     timeline: [breaking]
-// };
-
-// Second block of trials
-// let second_procedure = {
-//     timeline: [fixation, faces, if_node],
-//     randomize_order: false,
-//     timeline_variables: full_stim_shuffle.slice(53, 106) // Ensure the range is correct
-// };
-
 // Add welcome screen
 timeline.push(welcome);
 
