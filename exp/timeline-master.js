@@ -46,7 +46,7 @@ window.createMasterTimeline = function() {
             `;
         },
         choices: ["1", "0"],
-        trial_duration: 50,
+        trial_duration: 5000,
         data: () => jsPsych.timelineVariable("data"),
         on_finish: (data) => {
             data.src_subject_id = workerId;
