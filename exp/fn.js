@@ -6,15 +6,15 @@ function saveData(name, data) {
     xhr.send(JSON.stringify({ filename: name, filedata: data }));
 }
 
-/* start the experiment */
-function startExperiment(){
-    const jsPsych = initJsPsych({
-        timeline: timeline,
-        show_progress_bar: true,
-        preload_images: [original_stimuli, inverted_stimuli],
-    });
+// /* start the experiment */
+// function startExperiment(){
+//     const jsPsych = initJsPsych({
+//         timeline: timeline,
+//         show_progress_bar: true,
+//         preload_images: [original_stimuli, inverted_stimuli],
+//     });
 
-    // jsPsych.run(timeline);
-}
+//     // jsPsych.run(timeline);
+// }
 
-startExperiment();
+// startExperiment();

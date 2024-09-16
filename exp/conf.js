@@ -4,7 +4,9 @@
 
 "use strict";
 
-const version = "silverstein"; //"master";
+// COMMENT ONE OF THESE OUT
+const version = "silverstein";
+// const version = "master";
 
 let debug = true
 

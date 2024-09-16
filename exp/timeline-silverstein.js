@@ -1,12 +1,6 @@
 "use strict";
 
-let timeline = [];
-
-const jsPsych = initJsPsych({
-    timeline: timeline,
-    show_progress_bar: true,
-    preload_images: [original_stimuli, inverted_stimuli],
-});
+window.createSilversteinTimeline = function() {
 
 // Define welcome message trial
 let welcome = {
@@ -29,25 +23,16 @@ let fixation = {
 let faces = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: () => {
-        return (
-            "<img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='" +
-            jsPsych.timelineVariable("stimulus", true) +
-            "'>" +
-            "<p style='color:white;'><b>Face</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Not a Face</b> (press 0)</p>"
-        );
+        return `
+            <img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='${jsPsych.timelineVariable("stimulus", true)}'>
+            <p style='color:white;'><b>Face</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Not a Face</b> (press 0)</p>
+        `;
     },
     choices: ["1", "0"],
     trial_duration: 5000,
-    data: jsPsych.timelineVariable("data"),
+    data: () => jsPsych.timelineVariable("data"),
     on_finish: (data) => {
-        // data.subjectkey = GUID;
         data.src_subject_id = workerId;
-        // data.site = siteNumber;
-        // data.interview_date = today ;
-        // data.interview_age = ageAtAssessment; 
-        // data.sex = sexAtBirth;
-        // data.phenotype = groupStatus;
-        // data.handedness = handedness;
         data.index = experimentIterator;
         data.response_face = String.fromCharCode(data.key_press);
         // Accuracy handling based on test_part (upright/inverted/catch)
@@ -58,7 +43,6 @@ let faces = {
             // Compare the key press with the correct response
             data.accuracy_face = keyChar === data.correct_response;
         }
-
     },
 };
 
@@ -119,13 +103,23 @@ let if_node = {
 let first_procedure = {
     timeline: [fixation, faces, if_node],
     randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(0, 53) // Ensure full_stim_shuffle is defined
+    timeline_variables: full_stim_shuffle.slice(0, 53).map(stim => ({
+        // map your stimulus properties here
+        stimulus: stim.stimulus,
+        data: stim.data,
+        // add other properties as needed
+    }))
 };
 
 let second_procedure = {
     timeline: [fixation, faces, if_node],
     randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(53, 106) // Ensure the range is correct
+    timeline_variables: full_stim_shuffle.slice(53, 106).map(stim => ({
+        // map your stimulus properties here
+        stimulus: stim.stimulus,
+        data: stim.data,
+        // add other properties as needed
+    }))
 };
 
 // Define instruction trials
@@ -237,5 +231,23 @@ let procedureInstructions = {
     randomize_order: false
 };
 
-// Call the main experiment setup
-$.getScript("exp/main.js");
+return {
+    welcome: welcome,
+    fixation: fixation,
+    faces: faces,
+    gender: gender,
+    age: age,
+    if_node: if_node,
+    first_procedure: first_procedure,
+    second_procedure: second_procedure,
+    instructions_1: instructions_1,
+    instructions_2: instructions_2,
+    instructions_3: instructions_3,
+    instructions_4: instructions_4,
+    instructions_5: instructions_5,
+    rest: rest,
+    save_data: save_data,
+    end: end,
+    procedureInstructions: procedureInstructions
+};
+};

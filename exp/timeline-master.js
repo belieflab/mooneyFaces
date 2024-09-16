@@ -1,12 +1,6 @@
 "use strict";
 
-let timeline = [];
-
-const jsPsych = initJsPsych({
-    timeline: timeline,
-    show_progress_bar: true,
-    preload_images: [original_stimuli, inverted_stimuli],
-});
+window.createMasterTimeline = function() {
 
 /* Define welcome message trial */
 // let welcome = {
@@ -128,5 +122,23 @@ let second_half = createStimulusTrial();
 //   choices: jsPsych.NO_KEYS
 // };
 
-// Load the main experiment setup
-$.getScript("exp/main.js");
+return {
+  welcome: welcome,
+  fixation: fixation,
+  faces: faces,
+  gender: gender,
+  age: age,
+  if_node: if_node,
+  first_procedure: first_procedure,
+  second_procedure: second_procedure,
+  instructions_1: instructions_1,
+  instructions_2: instructions_2,
+  instructions_3: instructions_3,
+  instructions_4: instructions_4,
+  instructions_5: instructions_5,
+  rest: rest,
+  save_data: save_data,
+  end: end,
+  procedureInstructions: procedureInstructions
+};
+};
