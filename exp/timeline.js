@@ -1,17 +1,30 @@
+// timeline.js
 "use strict";
 
-let version_specific_content;
+console.log("Starting timeline.js");
+console.log("Current version:", version);
 
-switch (version) {
-    case "silverstein":
-        version_specific_content = window.createSilversteinTimeline();
-        break;
-    case "master":
-        version_specific_content = window.createMasterTimeline();
-        break;
-    default:
-        console.error("Invalid version specified in conf.js");
+function createTimeline() {
+    if (version === "silverstein") {
+        console.log("Creating Silverstein timeline");
+        return window.createSilversteinTimeline();
+    } else if (version === "master") {
+        console.log("Creating Master timeline");
+        return window.createMasterTimeline();
+    } else {
+        console.error("Invalid version specified");
+        return null;
+    }
 }
 
-// Make version-specific content globally accessible
-window.version_specific_content = version_specific_content;
+const experimentTimeline = createTimeline();
+
+console.log("Timeline created:", experimentTimeline);
+console.log("Timeline length:", experimentTimeline ? experimentTimeline.length : 0);
+
+if (experimentTimeline && experimentTimeline.length > 0) {
+    console.log("Calling runExperiment with timeline");
+    window.runExperiment(experimentTimeline);
+} else {
+    console.error("Failed to create timeline or timeline is empty");
+}

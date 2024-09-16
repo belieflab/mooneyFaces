@@ -45,7 +45,6 @@
     <script src="./wrap/jspsych/jspsych.js"></script>
     <script src="./wrap/plugins/plugin-html-keyboard-response.js"></script>
     <!-- <script type="text/javascript" src="./wrap/plugins/plugin-html-keyboard-response.js"></script> -->
-    <script type="text/javascript" src="./wrap/lib/redirect.js"></script>
     <script type="text/javascript" src="./exp/conf.js"></script>
     <script type="text/javascript" src="./exp/var.js"></script>
     <script type="text/javascript" src="./wrap/lib/fn.js"></script>
@@ -53,9 +52,7 @@
     <script src="./exp/var-silverstein.js"></script>
     <script type="text/javascript" src="./exp/timeline-silverstein.js"></script>
     <script type="text/javascript" src="./exp/timeline-master.js"></script>
-    <script type="text/javascript" src="./exp/timeline.js"></script>
     <script type="text/javascript" src="./exp/main.js"></script>
-
-    <script type="text/javascript" src="./exp/fn.js"></script>
+    <script type="text/javascript" src="./exp/timeline.js"></script>
 </footer>
 </html>

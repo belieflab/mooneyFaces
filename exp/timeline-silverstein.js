@@ -2,6 +2,14 @@
 
 window.createSilversteinTimeline = function() {
 
+    const { full_stim } = window.shared_vars;
+    const { extendFullStim } = window.silverstein_vars;
+    
+    let experimentIterator = 1;  // Initialize locally
+    
+    const silverstein_full_stim = extendFullStim(full_stim);
+    const silverstein_full_stim_shuffle = jsPsych.randomization.shuffle(silverstein_full_stim);
+
 // Define welcome message trial
 let welcome = {
     type: jsPsychHtmlKeyboardResponse,
@@ -231,23 +239,18 @@ let procedureInstructions = {
     randomize_order: false
 };
 
-return {
-    welcome: welcome,
-    fixation: fixation,
-    faces: faces,
-    gender: gender,
-    age: age,
-    if_node: if_node,
-    first_procedure: first_procedure,
-    second_procedure: second_procedure,
-    instructions_1: instructions_1,
-    instructions_2: instructions_2,
-    instructions_3: instructions_3,
-    instructions_4: instructions_4,
-    instructions_5: instructions_5,
-    rest: rest,
-    save_data: save_data,
-    end: end,
-    procedureInstructions: procedureInstructions
-};
+let timeline = [
+    welcome,
+    procedureInstructions,
+    first_procedure,
+    rest,
+    second_procedure,
+    save_data,
+    end
+];
+
+window.shared_vars.experimentIterator = experimentIterator;
+
+// Return the timeline array
+return timeline;
 };

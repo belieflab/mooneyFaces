@@ -1,52 +1,23 @@
 "use strict";
 
+// Initialize jsPsych
 const jsPsych = initJsPsych({
     show_progress_bar: true,
     preload_images: [original_stimuli, inverted_stimuli],
 });
 
-// Create the timeline array
-let timeline = [];
-
-// Check if version_specific_content exists
-if (window.version_specific_content) {
-    // Add welcome screen
-    if (window.version_specific_content.welcome) {
-        timeline.push(window.version_specific_content.welcome);
+// This function will be called from timeline.js
+function runExperiment(timeline) {
+    console.log("Running experiment with timeline:", timeline);
+    if (timeline && timeline.length > 0) {
+        jsPsych.run(timeline);
+    } else {
+        console.error("Timeline is empty or undefined. Cannot start experiment.");
     }
-
-    // Add the instruction procedure
-    if (window.version_specific_content.procedureInstructions) {
-        timeline.push(window.version_specific_content.procedureInstructions);
-    }
-
-    // Add first procedure block
-    if (window.version_specific_content.first_procedure) {
-        timeline.push(window.version_specific_content.first_procedure);
-    }
-
-    // Add rest/breaking period
-    if (window.version_specific_content.rest) {
-        timeline.push(window.version_specific_content.rest);
-    }
-
-    // Add second procedure block
-    if (window.version_specific_content.second_procedure) {
-        timeline.push(window.version_specific_content.second_procedure);
-    }
-
-    // Add data-saving step
-    if (window.version_specific_content.save_data) {
-        timeline.push(window.version_specific_content.save_data);
-    }
-
-    // Add end screen/sequence
-    if (window.version_specific_content.end) {
-        timeline.push(window.version_specific_content.end);
-    }
-} else {
-    console.error("version_specific_content is not defined. Check if timeline.js is loaded correctly.");
 }
 
-// New jsPsych 7.x syntax
-jsPsych.run(timeline);
+// Export the runExperiment function so it can be called from timeline.js
+window.runExperiment = runExperiment;
+
+// Remove the timeline creation and jsPsych.run() call from here
+// The timeline will be created in timeline.js and passed to runExperiment
