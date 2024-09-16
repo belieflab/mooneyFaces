@@ -46,7 +46,7 @@ window.createMasterTimeline = function() {
             `;
         },
         choices: ["1", "0"],
-        trial_duration: 5000,
+        trial_duration: 50,
         data: () => jsPsych.timelineVariable("data"),
         on_finish: (data) => {
             data.src_subject_id = workerId;
@@ -103,6 +103,7 @@ window.createMasterTimeline = function() {
       first_procedure,
       breaking,
       second_procedure,
+      window.dataSave,
       end
   ];
 
