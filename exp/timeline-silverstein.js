@@ -27,7 +27,7 @@ let fixation = {
     data: { test_part: "fixation" },
 };
 
-// Define face stimuli trial
+// faces trials
 let faces = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: () => {
@@ -43,90 +43,69 @@ let faces = {
         data.src_subject_id = workerId;
         data.index = experimentIterator;
         data.response_face = String.fromCharCode(data.key_press);
-        // Accuracy handling based on test_part (upright/inverted/catch)
         if (["upright", "inverted", "catch"].includes(data.test_part)) {
-            // Convert the key_press to the corresponding character
             const keyChar = String.fromCharCode(data.key_press);
-
-            // Compare the key press with the correct response
             data.accuracy_face = keyChar === data.correct_response;
         }
     },
 };
 
-// Gender rating trial
+// Modify the gender and age trials
 let gender = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: () => {
-        return "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>";
-    },
+    stimulus: "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>",
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("gender"),
     on_finish: (data) => {
-        // data.subjectkey = GUID;
         data.src_subject_id = workerId;
-        // data.site = siteNumber;
-        // data.interview_date = today;
-        // data.interview_age = ageAtAssessment;
-        // data.sex = sexAtBirth;
-        // data.phenotype = groupStatus;
-        // data.handedness = handedness;
         data.index = experimentIterator;
         data.response_gender = data.key_press == "1" ? "masculine" : "feminine";
     },
 };
 
-// Age rating trial
 let age = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: () => {
-        return "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>";
-    },
+    stimulus: "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>",
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("age"),
     on_finish: (data) => {
-        // data.subjectkey = GUID; 
         data.src_subject_id = workerId;
-        // data.site = siteNumber;
-        // data.interview_date = today;
-        // data.interview_age = ageAtAssessment;
-        // data.sex = sexAtBirth;
-        // data.phenotype = groupStatus;
-        // data.handedness = handedness;
         data.index = experimentIterator;
         experimentIterator++;
         data.response_age = data.key_press == "1" ? "child" : "adult";
     },
 };
 
-// Conditional node for additional trials based on previous response
-let if_node = {
-    timeline: [gender, age],
-    conditional_function: () => {
-        var data = jsPsych.data.get().last(1).values()[0];
-        return data.key_press == 49;     },
+// Create a new trial that includes faces, gender, and age
+let facesWithRatings = {
+    timeline: [
+        faces,
+        {
+            timeline: [gender, age],
+            conditional_function: () => {
+                let data = jsPsych.data.get().last(1).values()[0];
+                return data.response === "1";
+            },
+        }
+    ]
 };
 
-// First block of trials
+// Modify the procedures to use the new facesWithRatings trial
 let first_procedure = {
-    timeline: [fixation, faces, if_node],
+    timeline: [fixation, facesWithRatings],
     randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(0, 53).map(stim => ({
-        // map your stimulus properties here
+    timeline_variables: silverstein_full_stim_shuffle.slice(0, 53).map(stim => ({
         stimulus: stim.stimulus,
         data: stim.data,
-        // add other properties as needed
     }))
 };
 
 let second_procedure = {
-    timeline: [fixation, faces, if_node],
+    timeline: [fixation, facesWithRatings],
     randomize_order: false,
-    timeline_variables: full_stim_shuffle.slice(53, 106).map(stim => ({
-        // map your stimulus properties here
+    timeline_variables: silverstein_full_stim_shuffle.slice(53, 106).map(stim => ({
         stimulus: stim.stimulus,
         data: stim.data,
-        // add other properties as needed
     }))
 };
 
