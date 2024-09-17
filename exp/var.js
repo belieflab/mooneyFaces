@@ -19,7 +19,7 @@ let full_stim = [
   }))
 ];
 
-let full_stim_shuffle = jsPsych.randomization.repeat(full_stim, 1);
+let full_stim_shuffle = shuffleArray(full_stim);
 
 window.shared_vars = {
   experimentIterator,

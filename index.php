@@ -7,8 +7,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mooney Faces</title>
-
+    <!-- add the title of the experiment that would be seen in the browser -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.title = `${experimentAlias.toUpperCase()}`;
+    });
+  </script>
+  <!-- favicon -->
+  <link rel="icon" type="image/ico" href="./wrap/favicon.ico">
+  <script type="text/javascript" src="./wrap/lib/validate.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <!-- jsPsych CDN (content delivery network) libraries -->
@@ -42,17 +49,18 @@
 
 <footer>
     <!-- Experiment-specific scripts -->
-    <script src="./wrap/jspsych/jspsych.js"></script>
-    <script src="./wrap/plugins/plugin-html-keyboard-response.js"></script>
+    <!-- <script src="./wrap/jspsych/jspsych.js"></script> -->
+    <!-- <script src="./wrap/plugins/plugin-html-keyboard-response.js"></script> -->
     <!-- <script type="text/javascript" src="./wrap/plugins/plugin-html-keyboard-response.js"></script> -->
     <script type="text/javascript" src="./exp/conf.js"></script>
+    <script type="text/javascript" src="./wrap/lib/redirect.js"></script>
     <script type="text/javascript" src="./wrap/lib/fn.js"></script>
     <script type="text/javascript" src="./exp/fn.js"></script>
     <script type="text/javascript" src="./exp/var.js"></script>
-    <script src="./exp/var-master.js"></script>
+    <script src="./exp/var-original.js"></script>
     <script src="./exp/var-silverstein.js"></script>
     <script type="text/javascript" src="./exp/timeline-silverstein.js"></script>
-    <script type="text/javascript" src="./exp/timeline-master.js"></script>
+    <script type="text/javascript" src="./exp/timeline-original.js"></script>
     <script type="text/javascript" src="./exp/main.js"></script>
     <script type="text/javascript" src="./exp/timeline.js"></script>
 </footer>

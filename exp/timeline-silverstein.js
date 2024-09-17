@@ -97,7 +97,8 @@ let first_procedure = {
     timeline_variables: silverstein_full_stim_shuffle.slice(0, 53).map(stim => ({
         stimulus: stim.stimulus,
         data: stim.data,
-    }))
+    })),
+    repetitions: getRepetitions()
 };
 
 let second_procedure = {

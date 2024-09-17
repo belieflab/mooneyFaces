@@ -8,9 +8,9 @@ function createTimeline() {
     if (version === "silverstein") {
         console.log("Creating Silverstein timeline");
         return window.createSilversteinTimeline();
-    } else if (version === "master") {
-        console.log("Creating Master timeline");
-        return window.createMasterTimeline();
+    } else if (version === "original") {
+        console.log("Creating Original timeline");
+        return window.createOriginalTimeline();
     } else {
         console.error("Invalid version specified");
         return null;

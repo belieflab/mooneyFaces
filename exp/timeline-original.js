@@ -1,7 +1,7 @@
 "use strict";
 
-window.createMasterTimeline = function() {
-  console.log("Starting createMasterTimeline function");
+window.createOriginalTimeline = function() {
+  console.log("Starting createOriginalTimeline function");
 
   const { full_stim_shuffle } = window.shared_vars;
     
@@ -70,7 +70,8 @@ window.createMasterTimeline = function() {
 
     let first_procedure = {
       timeline: [fixation, faces],
-      timeline_variables: full_stim_shuffle.slice(0, Math.floor(full_stim_shuffle.length / 2))
+      timeline_variables: full_stim_shuffle.slice(0, Math.floor(full_stim_shuffle.length / 2)),
+      repetitions: getRepetitions()
   };
   
   let second_procedure = {
@@ -111,7 +112,7 @@ window.createMasterTimeline = function() {
   window.shared_vars.experimentIterator = experimentIterator;
 
   // Add console.log statements for debugging
-  console.log("Creating Master Timeline");
+  console.log("Creating Original Timeline");
   console.log("Returning timeline:", timeline);
 
   // Return the timeline array
