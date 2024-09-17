@@ -5,16 +5,19 @@ git clone --recurse-submodules -j4 git@github.com:belieflab/mooneyFaces.git && c
 ```
 
 ## Overview 
+This task contains two versions in one: Master and Silverstein. Each comes with its own timeline and variable set. 
 
-In this task, participants will view a randomized array of 48 black and white images, half of which are upright faces and the other half inverted. Participants must decide whether they think each image is a face. Pressing ‘0’ for "not a face" & Pressing ‘1’ for "face." Responses must be made within 5 seconds.
+Both versions involve a task that presents a randomized array of 48 images of faces; half of the faces are upright and half are inverted. The participant is prompted to respond whether the image present was or was not a face, within 5 seconds. The total administration time should last no longer than 15 minutes.
 
-For images identified as faces, participants will also make two additional "forced choice" ratings:
+There are two differences between the versions. 
 
-- Does the face appear to be an adult or a child?
-- Does the face appear more masculine or more feminine?
+Firstly, silverstein adds 2 additional "forced choice" ratings. If the participant identifies an image as a face, regardless of its ground truth (upright or inverted), they then must say (1) whether the face appears to be an adult or child, and (2) whether the face appears to be more masculine or more feminine.
 
-Note: Participants must use the numbers at the top of the keyboard, not the number pad.
+Secondly, silverstein version adds 10 inverted and 10 upright catch images which should never be construed as a face.
 
-Approximate Run Time: The task will last no longer than 15 minutes, including a break.
+To select a version, go to the conf.js file. Identify the version variable. And finally, comment out the version you do not wish to use by putting two slashes in front of the line of code. Make sure the version you DO want to use does not have those slashes. For example, suppose you wanted the master version. Your conf.js should have these lines:
 
-This is the Silverstein version - it includes an additional 20 catch images (10 inverted and 10 upright) that should never be construed as faces.
+```
+// const version = "silverstein";
+const version = "master";
+```
