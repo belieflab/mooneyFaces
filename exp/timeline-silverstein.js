@@ -1,14 +1,7 @@
 "use strict";
-
-window.createSilversteinTimeline = function() {
-
-    const { full_stim } = window.shared_vars;
-    const { extendFullStim } = window.silverstein_vars;
-    
-    let experimentIterator = 1;  // Initialize locally
     
     const silverstein_full_stim = extendFullStim(full_stim);
-    const silverstein_full_stim_shuffle = jsPsych.randomization.shuffle(silverstein_full_stim);
+    const silverstein_full_stim_shuffle = shuffleArray(silverstein_full_stim);
 
 // Define welcome message trial
 let welcome = {
@@ -37,11 +30,11 @@ let faces = {
         `;
     },
     choices: ["1", "0"],
-    trial_duration: 5000,
+    trial_duration: trialDuration,
     data: () => jsPsych.timelineVariable("data"),
     on_finish: (data) => {
-        data.src_subject_id = workerId;
-        data.index = experimentIterator;
+        writeCandidateKeys(data);
+        data.index = trialIterator;
         data.response_face = String.fromCharCode(data.key_press);
         if (["upright", "inverted", "catch"].includes(data.test_part)) {
             const keyChar = String.fromCharCode(data.key_press);
@@ -57,8 +50,8 @@ let gender = {
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("gender"),
     on_finish: (data) => {
-        data.src_subject_id = workerId;
-        data.index = experimentIterator;
+        writeCandidateKeys(data);
+        data.index = trialIterator;
         data.response_gender = data.key_press == "1" ? "masculine" : "feminine";
     },
 };
@@ -69,9 +62,9 @@ let age = {
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("age"),
     on_finish: (data) => {
-        data.src_subject_id = workerId;
-        data.index = experimentIterator;
-        experimentIterator++;
+        writeCandidateKeys(data);
+        data.index = trialIterator;
+        trialIterator++;
         data.response_age = data.key_press == "1" ? "child" : "adult";
     },
 };
@@ -180,30 +173,23 @@ let end = {
 choices: "NO_KEYS",
 };
 
-// Procedure instructions timeline
-let procedureInstructions = {
-    timeline: [
-        instructions_1,
-        instructions_2,
-        instructions_3,
-        instructions_4,
-        instructions_5,
-    ],
-    randomize_order: false
-};
-
-let timeline = [
-    welcome,
-    procedureInstructions,
-    first_procedure,
-    rest,
-    second_procedure,
-    window.dataSave,
-    end
+// silverstein
+let procedureInstructions = [
+    instructions_1,
+    instructions_2,
+    instructions_3,
+    instructions_4,
+    instructions_5,
 ];
 
-window.shared_vars.experimentIterator = experimentIterator;
+let silversteinTimeline = [
+welcome,
+...procedureInstructions,
+first_procedure,
+rest,
+second_procedure,
+dataSave,
+end
+];
 
-// Return the timeline array
-return timeline;
-};
+$.getScript("exp/main.js");

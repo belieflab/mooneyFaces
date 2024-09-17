@@ -1,5 +1,7 @@
 "use strict";
 
+// All of var-original is used in silverstein version, in addition to these variables
+
 const ground_truth_gender = [
     "masculine", "ambiguous", "masculine", "masculine", "masculine", "ambiguous", 
     "masculine", "ambiguous", "masculine", "masculine", "ambiguous", "feminine",
@@ -71,11 +73,11 @@ const extendFullStim = (shared_full_stim) => {
     return extended_full_stim;
 };
 
-window.silverstein_vars = {
-    ground_truth_gender,
-    ground_truth_age,
-    scrambled,
-    catch_stimuli,
-    catch_stimuli_inverted,
-    extendFullStim
-};
+// window.silverstein_vars = {
+//     ground_truth_gender,
+//     ground_truth_age,
+//     scrambled,
+//     catch_stimuli,
+//     catch_stimuli_inverted,
+//     extendFullStim
+// };

@@ -7,4 +7,4 @@ const dataSave = {
 };
 
 // Make functions and objects globally accessible
-window.dataSave = dataSave;
+//window.dataSave = dataSave;

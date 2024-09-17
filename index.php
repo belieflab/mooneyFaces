@@ -4,10 +4,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- add the title of the experiment that would be seen in the browser -->
+  <!-- add the title of the experiment that would be seen in the browser -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       document.title = `${experimentAlias.toUpperCase()}`;
@@ -15,29 +14,26 @@
   </script>
   <!-- favicon -->
   <link rel="icon" type="image/ico" href="./wrap/favicon.ico">
+  <!-- PHP wrapper libraries -->
   <script type="text/javascript" src="./wrap/lib/validate.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="./wrap/lib/jquery-3.5.1.min.js"></script>
+  <!-- jsPsych CDN (content delivery network) libraries -->
+  <script src="https://unpkg.com/jspsych@7.3.3"></script>
+  <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
+  <!-- jsPsych Plugins (add more here) -->
+  <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-multi-choice@1.1.3"></script>
+  <!-- general styling -->
+  <link rel="stylesheet" type="text/css" href="./wrap/lib/style.css">
+  <!-- additional styling -->
+  <link rel="stylesheet" type="text/css" href="./css/exp.css">
 
-    <!-- jsPsych CDN (content delivery network) libraries -->
-    <script src="https://unpkg.com/jspsych@7.3.3"></script>
-    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
-    <!-- loads in jspsych plugins -->
-    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
-    <script src="https://unpkg.com/@jspsych/plugin-audio-keyboard-response@1.1.3"></script>  
-    <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.3"></script>
-   
-
-    <script src="https://cdn.jsdelivr.net/npm/jspsych@7.3.3/build/jspsych.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jspsych@7.3.3/plugins/jspsych-html-keyboard-response.js"></script>
-    <!-- Include jsPsych CSS -->
-    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="css/exp.css">
-    <script src="js/jquery-3.5.1.min.js"></script>
 </head>
 
 <body id='unload' onbeforeunload="return areYouSure()" style="background-color:grey;">
     <?php
-      if (isset($_GET["workerId"])) {
+         if (isset($_GET["workerId"]) || isset($_GET["PROLIFIC_PID"]) || isset($_GET["participantId"])) {
         include_once "./wrap/include/start.php";
       } else if (isset($_GET["src_subject_id"])) {
         include_once "./wrap/include/nda.php";
@@ -52,16 +48,12 @@
     <!-- <script src="./wrap/jspsych/jspsych.js"></script> -->
     <!-- <script src="./wrap/plugins/plugin-html-keyboard-response.js"></script> -->
     <!-- <script type="text/javascript" src="./wrap/plugins/plugin-html-keyboard-response.js"></script> -->
-    <script type="text/javascript" src="./exp/conf.js"></script>
     <script type="text/javascript" src="./wrap/lib/redirect.js"></script>
+    <script type="text/javascript" src="./exp/conf.js"></script>
     <script type="text/javascript" src="./wrap/lib/fn.js"></script>
     <script type="text/javascript" src="./exp/fn.js"></script>
     <script type="text/javascript" src="./exp/var.js"></script>
     <script src="./exp/var-original.js"></script>
     <script src="./exp/var-silverstein.js"></script>
-    <script type="text/javascript" src="./exp/timeline-silverstein.js"></script>
-    <script type="text/javascript" src="./exp/timeline-original.js"></script>
-    <script type="text/javascript" src="./exp/main.js"></script>
-    <script type="text/javascript" src="./exp/timeline.js"></script>
 </footer>
 </html>

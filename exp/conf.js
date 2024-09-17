@@ -25,6 +25,8 @@ const repetitions = {
     debug: 0,
 };
 
+let trialDuration = debug ? 50 : 5000;
+
 // Redirect Configuration (Daisy Chaining)
 const urlConfig = {
     audio: "https://yalesurvey.ca1.qualtrics.com/jfe/form/SV_2hk9hrLndCovfM2",
