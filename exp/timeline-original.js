@@ -23,7 +23,7 @@
         type: jsPsychHtmlKeyboardResponse,
         stimulus: '<div style="color:white; font-size:30px;">+</div>',
         choices: "NO_KEYS",
-        trial_duration: trialDuration,
+        trial_duration: fixationDuration,
         data: { test_part: 'fixation' }
     };
 
