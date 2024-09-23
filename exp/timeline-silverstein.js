@@ -6,9 +6,7 @@
 // Define welcome message trial
 let welcome = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h2 style="color:white;">Welcome to the experiment!</h2>' +
-        '<p style="color:white;"><i>Press any key to begin.</i></p>',
+    stimulus: instructions[0]
 };
 
 // Fixation cross trial
@@ -16,7 +14,7 @@ let fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: '<div style="color:white; font-size:30px;">+</div>',
     choices: "NO_KEYS",
-    trial_duration: 1000,
+    trial_duration: trialDuration,
     data: { test_part: "fixation" },
 };
 
@@ -106,55 +104,38 @@ let second_procedure = {
 // Define instruction trials
 let instructions_1 = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h3 style="color:white;">At the beginning of each trial, you will see a black and white image.</h3>' +
-        '<h3 style="color:white;">If you believe the image is a <u>face</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-        '<h3 style="color:white;">If you believe the image is <u>not a face</u>, please press the <u>0</u> key on your keyboard.</h3>' +
-        '<p style="color:white;"><i>Press either response key to continue.</i></p>',
+    stimulus: instructions[1],
     choices: ["1", "0"],
 };
 
 let instructions_2 = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h3 style="color:white;">If you respond that the image is a face, you will make two additional ratings.</h3>' +
-        "<h3 style='color:white;'>The instructions will always be shown after you respond, so you don't need to memorize them.</h3>" +
-        '<p style="color:white;"><i>Press either response key to continue.</i></p>',
+    stimulus: instructions[2],
     choices: ["1", "0"],
 };
 
 let instructions_3 = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h3 style="color:white;">If you believe the face is <u>more masculine</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-        '<h3 style="color:white;">If you believe the face is <u>more feminine</u>, please press the <u>0</u> key on your keyboard.</h3>' +
-        '<p style="color:white;"><i>Press either response key to continue.</i></p>',
+    stimulus: instructions[3],
     choices: ["1", "0"],
 };
 
 let instructions_4 = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h3 style="color:white;">If you believe the face is a <u>child</u>, please press the <u>1</u> key on your keyboard.</h3>' +
-        '<h3 style="color:white;">If you believe the face is an <u>adult</u>, please press the <u>0</u> key on your keyboard.</h3>' +
-        '<p style="color:white;"><i>Press either response key to continue.</i></p>',
+    stimulus: instructions[4],
     choices: ["1", "0"],
 };
 
 let instructions_5 = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h3 style="color:white;">Please respond as quickly as possible while maintaining a high level of confidence in your choice.</h3>' +
-        '<p style="color:white;"><i>Press the spacebar when you are ready to begin the experiment.<i></p>',
+    stimulus: instructions[5],
     choices: [" "], // Updated spacebar key
 };
 
 // Break trial
 let breaking = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        '<h3 style="color:white;">You are now on a halfway break.</h3>' +
-        '<p style="color:white;"><i>Press the spacebar when you are ready to continue.</i></p>',
+    stimulus: instructions[6],
     choices: [" "],
 };
 
@@ -166,10 +147,7 @@ let rest = {
 // End trial
 let end = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus:
-        "<p style='color:white;'>Thank you!</p>" +
-        "<p style='color:white;'>You have successfully completed the experiment and your data has been saved.</p>" +
-        "<p style='color:white;'><i>You may now close the experiment window at any time.</i></p>",
+    stimulus: instructions[7],
 choices: "NO_KEYS",
 };
 

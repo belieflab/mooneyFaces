@@ -5,10 +5,12 @@
 "use strict";
 
 // COMMENT ONE OF THESE OUT
-const version = "silverstein";
-// const version = "original";
+// const version = "silverstein";
+const version = "original";
 
 let debug = true
+
+const score = 1
 
 const experimentName = "Mooney Faces"; // Name displayed in the browser title bar
 const experimentAlias = `mooney_${version}`; // Unique identifier for the experiment, used in data saving

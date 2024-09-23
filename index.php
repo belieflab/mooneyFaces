@@ -52,6 +52,7 @@
     <script type="text/javascript" src="./exp/conf.js"></script>
     <script type="text/javascript" src="./wrap/lib/fn.js"></script>
     <script type="text/javascript" src="./exp/fn.js"></script>
+    <script type="text/javascript" src="./exp/lang.js"></script>
     <script type="text/javascript" src="./exp/var.js"></script>
     <script src="./exp/var-original.js"></script>
     <script src="./exp/var-silverstein.js"></script>

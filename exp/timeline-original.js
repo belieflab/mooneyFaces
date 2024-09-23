@@ -15,8 +15,7 @@
 
     let instructions_2 = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: '<h3 style="color:white;">Please respond as quickly as possible while maintaining a high level of confidence in your choice.</h3>' +
-                  '<p style="color:white;"><i>Press the spacebar when you are ready to begin the experiment.<i></p>',
+        stimulus: instructions[2],
         choices: [' ']
     };
 
@@ -24,7 +23,7 @@
         type: jsPsychHtmlKeyboardResponse,
         stimulus: '<div style="color:white; font-size:30px;">+</div>',
         choices: "NO_KEYS",
-        trial_duration: 1000,
+        trial_duration: trialDuration,
         data: { test_part: 'fixation' }
     };
 
@@ -66,18 +65,13 @@
 
     let breaking = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: '<h3 style="color:white;">You are now on a halfway break.</h3>' +
-                  '<p style="color:white;"><i>Press the spacebar when you are ready to continue.</i></p>',
+        stimulus: instructions[3],
         choices: [' ']
     };
 
     let end = {
         type: jsPsychHtmlKeyboardResponse,
-        stimulus: "<p style='color:white;'>Thank you!</p>" +
-                  "<p style='color:white;'>You have successfully completed the experiment and your data has been saved.</p>" +
-                  "<p style='color:white;'>To leave feedback on this task, please click the following link:</p>" +
-                  "<p style='color:white;'><a href='" + feedbackLink + "'>Leave Task Feedback!</a></p>" +
-                  "<p style='color:white;'><i>You may now close the experiment window at any time.</i></p>",
+        stimulus: instructions[4],
         choices: "NO_KEYS"
     };
 
