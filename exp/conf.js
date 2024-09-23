@@ -28,7 +28,6 @@ const repetitions = {
 };
 
 let trialDuration = debug ? 50 : 5000;
-
 let fixationDuration = debug ? 50 : 1000;
 
 // Redirect Configuration (Daisy Chaining)
