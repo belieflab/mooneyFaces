@@ -1,30 +1,81 @@
-# Mooney Faces (mooney)
+# 🎭 Mooney Faces Task
 
-Participants will see black and white images and decide whether they think the image is a face. They will press 0 if they think it is not a face and 1 if they do. *Note:* Participants cannot use their number pad for this task; they must use thenumbers at the toip of the keyboard.
+Welcome to the Mooney Faces Task! This experiment challenges participants to identify faces in black and white images, testing visual perception and face recognition abilities.
 
-Approximate Runtime: 8 minutes for original version., 10 miutes for silverstein version
+## 🚀 Getting Started
 
-
-## Getting Started
 ### Clone the Repository
-```
+```bash
 git clone --recurse-submodules -j4 git@github.com:belieflab/mooneyFaces.git && cd mooneyFaces && git submodule foreach --recursive 'git checkout $(git config -f $toplevel/.gitmodules submodule.$name.branch || echo main)' && git update-index --assume-unchanged exp/conf.js
 ```
 
-## Overview 
-This task contains two versions in one: Original and Silverstein. Each comes with its own timeline and variable set. 
-
-Both versions involve a task that presents a randomized array of 48 images of faces; half of the faces are upright and half are inverted. The participant is prompted to respond whether the image present was or was not a face, within 5 seconds. The total administration time should last no longer than 15 minutes.
-
-There are two differences between the versions. 
-
-Firstly, silverstein adds 2 additional "forced choice" ratings. If the participant identifies an image as a face, regardless of its ground truth (upright or inverted), they then must say (1) whether the face appears to be an adult or child, and (2) whether the face appears to be more masculine or more feminine.
-
-Secondly, silverstein version adds 10 inverted and 10 upright catch images which should never be construed as a face.
-
-To select a version, go to the `exp/conf.js` file. Identify the version variable. And finally, comment out the version you do not wish to use by putting two slashes in front of the line of code. Make sure the version you DO want to use does not have those slashes. For example, suppose you wanted the original version. Your conf.js should have these lines:
-
+### Stay Updated
+When pulling changes, run:
+```bash
+./sync.sh
 ```
-// const version = "silverstein";
+> 🔄 This ensures all submodules are up-to-date
+
+## 📊 Task Versions
+
+### Original Version
+- 48 images (half upright, half inverted)
+- Participants respond whether the image is a face or not
+- Approximate runtime: 8 minutes
+
+### Silverstein Version
+- 48 main images + 20 catch images (10 upright, 10 inverted)
+- Additional ratings for perceived age and gender of identified faces
+- Approximate runtime: 10 minutes
+
+## 🎯 Task Procedure
+
+1. Participants view black and white images
+2. They decide if the image is a face:
+   - Press 0 if not a face
+   - Press 1 if it is a face
+3. Response time: 5 seconds per image
+4. *Note:* Participants must use the numbers at the top of the keyboard, not the number pad
+
+## ⚙️ Configuration
+
+Modify `exp/conf.js` to select the desired version:
+
+```javascript
+// Uncomment the version you want to use
 const version = "original";
+// const version = "silverstein";
+```
+
+## 🌐 Online Administration
+
+For platforms like PROLIFIC, CloudResearch, MTurk, or Connect, use:
+```
+https://web-url-of-your-website.com/study-name/mooneyFaces
+```
+
+## 🛠 Development Guide
+
+### Dependencies
+- PHP version 8.x
+- jsPsych version 7.x
+
+### XAMPP Setup
+1. [Download XAMPP](https://www.apachefriends.org/download.html)
+2. Start XAMPP and services
+3. Clone the repository into htdocs
+4. Modify permissions as needed
+5. Launch the experiment
+
+## 📈 Output Variables
+
+We're working on including:
+- image information (orientation, ground truth)
+- version_type
+
+## 🚧 To-Do
+- Add detailed scoring metrics for each version
+
+---
+🎭 Ready to explore face perception? Let's dive into the world of Mooney faces! 👁️🧠
 ```
