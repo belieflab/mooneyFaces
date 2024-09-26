@@ -33,7 +33,7 @@ switch (version) {
                   <p style='color:white;'>Thank you!</p>
                   <p style='color:white;'>You have successfully completed the experiment and your data has been saved.</p>
                   <p style='color:white;'>To leave feedback on this task, please click the following link:</p>
-                  <p style='color:white;'><a href='" + feedbackLink + "'>Leave Task Feedback!</a></p>
+                  <p style='color:white;'><a href='${feedbackLink}'>Leave Task Feedback!</a></p>
                   <p style='color:white;'><i>You may now close the experiment window at any time.</i></p>,`;
         break;
     case "silverstein":
@@ -108,7 +108,6 @@ switch (version) {
             (score) => english7(score),
         ];
 }
-
 
 // Translate the instructions to the specified language
 translate(language, ...instructions);
