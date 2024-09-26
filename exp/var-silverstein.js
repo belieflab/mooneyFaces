@@ -118,15 +118,15 @@ const extendFullStim = (shared_full_stim) => {
     extended_full_stim.forEach((stim, i) => {
         if (i < ground_truth_gender.length) {
             // Keep the data object as is
-            stim.data = { ...stim.data };
+            stim.face = { ...stim.face };
 
             // Create separate age and gender objects with ground truth
             stim.age = {
-                ...stim.data,
+                ...stim.face,
                 ground_truth_age: ground_truth_age[i],
             };
             stim.gender = {
-                ...stim.data,
+                ...stim.face,
                 ground_truth_gender: ground_truth_gender[i],
             };
         }
@@ -135,7 +135,7 @@ const extendFullStim = (shared_full_stim) => {
     scrambled.forEach((stim, i) => {
         extended_full_stim.push({
             stimulus: catch_stimuli[i],
-            data: {
+            face: {
                 stimulus: stim,
                 stim: `U0${stim}.png`,
                 test_part: "catch",
@@ -163,7 +163,7 @@ const extendFullStim = (shared_full_stim) => {
         });
         extended_full_stim.push({
             stimulus: catch_stimuli_inverted[i],
-            data: {
+            face: {
                 stimulus: `${stim}-180.png`,
                 stim: `U0${stim}-180.png`,
                 test_part: "catch",
