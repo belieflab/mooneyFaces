@@ -1,12 +1,12 @@
 "use strict";
-    
-    const silverstein_full_stim = extendFullStim(full_stim);
-    const silverstein_full_stim_shuffle = shuffleArray(silverstein_full_stim);
+
+const silverstein_full_stim = extendFullStim(full_stim);
+const silverstein_full_stim_shuffle = shuffleArray(silverstein_full_stim);
 
 // Define welcome message trial
 let welcome = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: instructions[0]
+    stimulus: instructions[0],
 };
 
 // Fixation cross trial
@@ -23,7 +23,10 @@ let faces = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: () => {
         return `
-            <img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='${jsPsych.timelineVariable("stimulus", true)}'>
+            <img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='${jsPsych.timelineVariable(
+                "stimulus",
+                true
+            )}'>
             <p style='color:white;'><b>Face</b> (press 1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Not a Face</b> (press 0)</p>
         `;
     },
@@ -35,9 +38,13 @@ let faces = {
         data.index = trialIterator;
         data.response_face = data.response || ""; // Use empty string if no response
         if (["upright", "inverted"].includes(data.test_part)) {
-            data.accuracy_face = data.response ? (data.response === data.correct_response) : "";
+            data.accuracy_face = data.response
+                ? data.response === data.correct_response
+                : "";
         } else if (data.test_part === "catch") {
-            data.accuracy_catch = data.response ? (data.response === data.correct_response) : "";
+            data.accuracy_catch = data.response
+                ? data.response === data.correct_response
+                : "";
         }
     },
 };
@@ -45,26 +52,28 @@ let faces = {
 // Modify the gender and age trials
 let gender = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>",
+    stimulus:
+        "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>",
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("gender"),
     on_finish: (data) => {
         writeCandidateKeys(data);
         data.index = trialIterator;
-        data.response_gender = data.key_press == "1" ? "masculine" : "feminine";
+        data.response_gender = data.response == "1" ? "masculine" : "feminine";
     },
 };
 
 let age = {
     type: jsPsychHtmlKeyboardResponse,
-    stimulus: "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>",
+    stimulus:
+        "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>",
     choices: ["1", "0"],
     data: jsPsych.timelineVariable("age"),
     on_finish: (data) => {
         writeCandidateKeys(data);
         data.index = trialIterator;
         trialIterator++;
-        data.response_age = data.key_press == "1" ? "child" : "adult";
+        data.response_age = data.response == "1" ? "child" : "adult";
     },
 };
 
@@ -78,28 +87,32 @@ let facesWithRatings = {
                 let data = jsPsych.data.get().last(1).values()[0];
                 return data.response === "1";
             },
-        }
-    ]
+        },
+    ],
 };
 
 // Modify the procedures to use the new facesWithRatings trial
 let first_procedure = {
     timeline: [fixation, facesWithRatings],
     randomize_order: false,
-    timeline_variables: silverstein_full_stim_shuffle.slice(0, 53).map(stim => ({
-        stimulus: stim.stimulus,
-        data: stim.data,
-    })),
-    repetitions: getRepetitions()
+    timeline_variables: silverstein_full_stim_shuffle
+        .slice(0, 53)
+        .map((stim) => ({
+            stimulus: stim.stimulus,
+            data: stim.data,
+        })),
+    repetitions: getRepetitions(),
 };
 
 let second_procedure = {
     timeline: [fixation, facesWithRatings],
     randomize_order: false,
-    timeline_variables: silverstein_full_stim_shuffle.slice(53, 106).map(stim => ({
-        stimulus: stim.stimulus,
-        data: stim.data,
-    }))
+    timeline_variables: silverstein_full_stim_shuffle
+        .slice(53, 106)
+        .map((stim) => ({
+            stimulus: stim.stimulus,
+            data: stim.data,
+        })),
 };
 
 // Define instruction trials
@@ -142,14 +155,14 @@ let breaking = {
 
 // Break period
 let rest = {
-    timeline: [breaking]
+    timeline: [breaking],
 };
 
 // End trial
 let end = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: instructions[7],
-choices: "NO_KEYS",
+    choices: "NO_KEYS",
 };
 
 // silverstein
@@ -162,13 +175,13 @@ let procedureInstructions = [
 ];
 
 let silversteinTimeline = [
-welcome,
-...procedureInstructions,
-first_procedure,
-rest,
-second_procedure,
-dataSave,
-end
+    welcome,
+    ...procedureInstructions,
+    first_procedure,
+    rest,
+    second_procedure,
+    dataSave,
+    end,
 ];
 
 $.getScript("exp/main.js");
