@@ -24,7 +24,7 @@ let faces = {
     stimulus: () => {
         return `
             <img class='center' style='height: 225px; width: 225px; margin-left: 50px;' src='${jsPsych.timelineVariable("stimulus", true)}'>
-            <p style='color:white;'><b>Face</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Not a Face</b> (press 0)</p>
+            <p style='color:white;'><b>Face</b> (press 1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>Not a Face</b> (press 0)</p>
         `;
     },
     choices: ["1", "0"],
@@ -33,10 +33,11 @@ let faces = {
     on_finish: (data) => {
         writeCandidateKeys(data);
         data.index = trialIterator;
-        data.response_face = String.fromCharCode(data.key_press);
-        if (["upright", "inverted", "catch"].includes(data.test_part)) {
-            const keyChar = String.fromCharCode(data.key_press);
-            data.accuracy_face = keyChar === data.correct_response;
+        data.response_face = data.response || ""; // Use empty string if no response
+        if (["upright", "inverted"].includes(data.test_part)) {
+            data.accuracy_face = data.response ? (data.response === data.correct_response) : "";
+        } else if (data.test_part === "catch") {
+            data.accuracy_catch = data.response ? (data.response === data.correct_response) : "";
         }
     },
 };

@@ -41,11 +41,9 @@
         on_finish: (data) => {
             writeCandidateKeys(data);
             data.index = trialIterator;
-            trialIterator++;
-            data.response_face = String.fromCharCode(data.key_press);
-            if (["upright", "inverted", "catch"].includes(data.test_part)) {
-                const keyChar = String.fromCharCode(data.key_press);
-                data.accuracy_face = keyChar === data.correct_response;
+            data.response_face = data.response || ""; // Use empty string if no response
+            if (["upright", "inverted"].includes(data.test_part)) {
+                data.accuracy_face = data.response ? (data.response === data.correct_response) : "";
             }
         },
     };
