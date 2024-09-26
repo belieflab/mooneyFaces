@@ -32,11 +32,11 @@ let fixationDuration = debug ? 50 : 1000;
 
 // Redirect Configuration (Daisy Chaining)
 const urlConfig = {
-    audio: "https://yalesurvey.ca1.qualtrics.com/jfe/form/SV_2hk9hrLndCovfM2",
-    default: "https://yalesurvey.ca1.qualtrics.com/jfe/form/SV_2hk9hrLndCovfM2",
+    original:
+        "https://yalesurvey.ca1.qualtrics.com/jfe/form/SV_2hk9hrLndCovfM2",
+    silverstein:
+        "https://yalesurvey.ca1.qualtrics.com/jfe/form/SV_2hk9hrLndCovfM2",
 };
-
-const feedbackLink = "https://google.com";
 
 const counterbalance = false;
 
