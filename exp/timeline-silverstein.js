@@ -32,7 +32,7 @@ let faces = {
     },
     choices: ["1", "0"],
     trial_duration: trialDuration,
-    data: () => jsPsych.timelineVariable("data"),
+    data: () => jsPsych.timelineVariable("face"),
     on_finish: (data) => {
         writeCandidateKeys(data);
         data.index = trialIterator;

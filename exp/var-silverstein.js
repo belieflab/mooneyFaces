@@ -118,7 +118,11 @@ const extendFullStim = (shared_full_stim) => {
     extended_full_stim.forEach((stim, i) => {
         if (i < ground_truth_gender.length) {
             // Keep the data object as is
-            stim.face = { ...stim.face };
+            stim.face = {
+                ...stim.face,
+                ground_truth_age: "",
+                ground_truth_gender: "",
+            };
 
             // Create separate age and gender objects with ground truth
             stim.age = {
