@@ -155,6 +155,7 @@ const extendFullStim = (shared_full_stim) => {
                 correct_response: "0",
                 incorrect_response: "1",
                 ground_truth_gender: "",
+                ground_truth_age: "",
             },
             age: {
                 stimulus: stim,
@@ -163,6 +164,7 @@ const extendFullStim = (shared_full_stim) => {
                 correct_response: "0",
                 incorrect_response: "1",
                 ground_truth_age: "",
+                ground_truth_gender: "",
             },
         });
         extended_full_stim.push({
@@ -183,6 +185,7 @@ const extendFullStim = (shared_full_stim) => {
                 correct_response: "0",
                 incorrect_response: "1",
                 ground_truth_gender: "",
+                ground_truth_age: "",
             },
             age: {
                 stimulus: `${stim}-180.png`,
@@ -191,6 +194,7 @@ const extendFullStim = (shared_full_stim) => {
                 correct_response: "0",
                 incorrect_response: "1",
                 ground_truth_age: "",
+                ground_truth_gender: "",
             },
         });
     });

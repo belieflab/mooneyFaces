@@ -55,7 +55,7 @@ let gender = {
     stimulus:
         "<p style='color:white;'><b>more masculine</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>more feminine</b> (press 0)</p>",
     choices: ["1", "0"],
-    data: jsPsych.timelineVariable("gender"),
+    data: () => jsPsych.timelineVariable("gender"),
     on_finish: (data) => {
         writeCandidateKeys(data);
         data.index = trialIterator;
@@ -68,7 +68,7 @@ let age = {
     stimulus:
         "<p style='color:white;'><b>Child</b> (press 1)&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <b>Adult</b> (press 0)</p>",
     choices: ["1", "0"],
-    data: jsPsych.timelineVariable("age"),
+    data: () => jsPsych.timelineVariable("age"),
     on_finish: (data) => {
         writeCandidateKeys(data);
         data.index = trialIterator;

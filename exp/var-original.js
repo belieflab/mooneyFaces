@@ -124,13 +124,3 @@ let full_stim = [
 ];
 
 let full_stim_shuffle = shuffleArray(full_stim);
-
-// window.shared_vars = {
-//   trialIterator,
-//   original,
-//   inverted,
-//   original_stimuli,
-//   inverted_stimuli,
-//   full_stim,
-//   full_stim_shuffle,
-// };
