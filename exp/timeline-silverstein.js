@@ -77,15 +77,26 @@ let age = {
     },
 };
 
-// Create a new trial that includes faces, gender, and age
 let facesWithRatings = {
     timeline: [
         faces,
         {
             timeline: [gender, age],
             conditional_function: () => {
+                // Get the data from the previous trial
                 let data = jsPsych.data.get().last(1).values()[0];
-                return data.response === "1";
+
+                // Check the response
+                if (data.response === "1") {
+                    // console.log("true");
+                    return true; // Continue to gender and age trials
+                } else {
+                    console.log(
+                        data.response === "0" ? "false" : "no response"
+                    );
+                    trialIterator++; // Increment the iterator
+                    return false; // Skip gender and age trials
+                }
             },
         },
     ],
