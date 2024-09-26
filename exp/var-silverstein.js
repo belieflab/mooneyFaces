@@ -32,12 +32,16 @@ const extendFullStim = (shared_full_stim) => {
 
     extended_full_stim.forEach((stim, i) => {
         if (i < ground_truth_gender.length) {
+            stim.data.ground_truth_gender = ground_truth_gender[i];
+            stim.data.ground_truth_age = ground_truth_age[i];
+            
+            // Keep these for compatibility with the original structure
             stim.gender = {
-                stimulus: stim.data.stimulus,
+                ...stim.data,
                 ground_truth_gender: ground_truth_gender[i]
             };
             stim.age = {
-                stimulus: stim.data.stimulus,
+                ...stim.data,
                 ground_truth_age: ground_truth_age[i]
             };
         }
@@ -51,10 +55,26 @@ const extendFullStim = (shared_full_stim) => {
                 stim: `U0${stim}.png`,
                 test_part: "catch",
                 correct_response: "0",
-                incorrect_response: "1"
+                incorrect_response: "1",
+                ground_truth_gender: "",
+                ground_truth_age: ""
             },
-            gender: { ground_truth_gender: "" },
-            age: { ground_truth_age: "" }
+            gender: {
+                stimulus: stim,
+                stim: `U0${stim}.png`,
+                test_part: "catch",
+                correct_response: "0",
+                incorrect_response: "1",
+                ground_truth_gender: ""
+            },
+            age: {
+                stimulus: stim,
+                stim: `U0${stim}.png`,
+                test_part: "catch",
+                correct_response: "0",
+                incorrect_response: "1",
+                ground_truth_age: ""
+            }
         });
         extended_full_stim.push({
             stimulus: catch_stimuli_inverted[i],
@@ -63,21 +83,28 @@ const extendFullStim = (shared_full_stim) => {
                 stim: `U0${stim}-180.png`,
                 test_part: "catch",
                 correct_response: "0",
-                incorrect_response: "1"
+                incorrect_response: "1",
+                ground_truth_gender: "",
+                ground_truth_age: ""
             },
-            gender: { ground_truth_gender: "" },
-            age: { ground_truth_age: "" }
+            gender: {
+                stimulus: `${stim}-180.png`,
+                stim: `U0${stim}-180.png`,
+                test_part: "catch",
+                correct_response: "0",
+                incorrect_response: "1",
+                ground_truth_gender: ""
+            },
+            age: {
+                stimulus: `${stim}-180.png`,
+                stim: `U0${stim}-180.png`,
+                test_part: "catch",
+                correct_response: "0",
+                incorrect_response: "1",
+                ground_truth_age: ""
+            }
         });
     });
 
     return extended_full_stim;
 };
-
-// window.silverstein_vars = {
-//     ground_truth_gender,
-//     ground_truth_age,
-//     scrambled,
-//     catch_stimuli,
-//     catch_stimuli_inverted,
-//     extendFullStim
-// };
