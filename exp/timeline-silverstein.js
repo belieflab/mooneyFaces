@@ -106,24 +106,14 @@ let facesWithRatings = {
 let first_procedure = {
     timeline: [fixation, facesWithRatings],
     randomize_order: false,
-    timeline_variables: silverstein_full_stim_shuffle
-        .slice(0, 53)
-        .map((stim) => ({
-            stimulus: stim.stimulus,
-            data: stim.data,
-        })),
+    timeline_variables: silverstein_full_stim_shuffle.slice(0, 53),
     repetitions: getRepetitions(),
 };
 
 let second_procedure = {
     timeline: [fixation, facesWithRatings],
     randomize_order: false,
-    timeline_variables: silverstein_full_stim_shuffle
-        .slice(53, 106)
-        .map((stim) => ({
-            stimulus: stim.stimulus,
-            data: stim.data,
-        })),
+    timeline_variables: silverstein_full_stim_shuffle.slice(53, 106),
 };
 
 // Define instruction trials
