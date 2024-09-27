@@ -21,23 +21,34 @@ When pulling changes, run:
 ## 📊 Task Versions
 
 ### Original Version
-- 48 images (half upright, half inverted)
+- 86 images (half upright, half inverted)
 - Participants respond whether the image is a face or not
 - Approximate runtime: 8 minutes
 
 ### Silverstein Version
-- 48 main images + 20 catch images (10 upright, 10 inverted)
+- 86 main images (half upright, half inverted)
+- 20 scrambled images (10 upright, 10 inverted) which act as catch trials
 - Additional ratings for perceived age and gender of identified faces
-- Approximate runtime: 10 minutes
+- Approximate runtime: 12 minutes
 
 ## 🎯 Task Procedure
+
+### Original Version
 
 1. Participants view black and white images
 2. They decide if the image is a face:
    - Press 0 if not a face
    - Press 1 if it is a face
 3. Response time: 5 seconds per image
-4. *Note:* Participants must use the numbers at the top of the keyboard, not the number pad
+
+### Silverstin Version
+
+1. Same instructions as original version
+2. If they decide the image is a face:
+  - Is the face more masculine or more feminine?
+  - Is the face a child or an adult?
+
+> ⚠️ Participants must use the numbers at the top of the keyboard, not the number pad
 
 ## ⚙️ Configuration
 
