@@ -12,7 +12,7 @@
 ## Author: Praveen Suthaharan, Josh Kenney
 ## Description: Function to summarize performance from the mooney faces task 
 ## Input: data/*.csv
-## Output: output/mooney_clean.csv
+## Output: scoring/output/mooney_clean.csv
 
 ## read in data
 # Create an empty dataframe to store the merged data
@@ -481,6 +481,6 @@ colnames(mooney_faces_reported_dat) <- c("src_subject_id",
 mooney_clean <- mooney_faces_reported_dat
 
 # create csv of cleaned, scored data frame
-path = paste('output/',deparse(substitute(df)),'.csv',sep='')
+path = paste('scoring/output/',deparse(substitute(df)),'.csv',sep='')
 write.csv(mooney_clean,path,row.names = FALSE)
 cat(paste0("Extract created at ",path))
