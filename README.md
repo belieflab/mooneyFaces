@@ -45,8 +45,8 @@ When pulling changes, run:
 
 1. Same instructions as original version
 2. If they decide the image is a face:
-  - Is the face more masculine or more feminine?
-  - Is the face a child or an adult?
+   - Press 1 if the face more masculine or press 0 if the face more feminine
+   - Press 1 if the face is of a child or press 0 if the face is of an adult
 
 > ⚠️ Participants must use the numbers at the top of the keyboard, not the number pad
 
