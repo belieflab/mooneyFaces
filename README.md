@@ -16,7 +16,7 @@ When pulling changes, run:
 ```
 > 🔄 This ensures all submodules are up-to-date.
 
-> ⚠️ Pulling changes will not remove any data.
+> 👌 Pulling changes will not remove any data.
 
 ## 📊 Task Versions
 
