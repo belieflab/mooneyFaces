@@ -77,26 +77,22 @@ const age = {
     },
 };
 
+// Define the timeline object for faces with ratings
 const facesWithRatings = {
     timeline: [
-        faces,
+        faces, // Initial faces trial
         {
-            timeline: [gender, age],
+            timeline: [gender, age], // Gender and age trials
             conditional_function: () => {
-                // Get the data from the previous trial
-                let data = jsPsych.data.get().last(1).values()[0];
+                // Retrieve the response data from the previous trial
+                const { response } = jsPsych.data.get().last(1).values()[0];
 
-                // Check the response
-                if (data.response === "1") {
-                    // console.log("true");
-                    return true; // Continue to gender and age trials
-                } else {
-                    // console.log(
-                    //     data.response === "0" ? "false" : "no response"
-                    // );
-                    trialIterator++; // Increment the iterator
-                    return false; // Skip gender and age trials
-                }
+                // Check if the response is "1" to continue to gender and age trials
+                if (response === "1") return true;
+
+                // Otherwise, increment the trial iterator and skip these trials
+                trialIterator++;
+                return false;
             },
         },
     ],
