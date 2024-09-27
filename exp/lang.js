@@ -30,11 +30,14 @@ switch (version) {
                   <p style="color:white;"><i>Press the spacebar when you are ready to continue.</i></p>`;
 
         var english4 = (score) => `
-                  <p style='color:white;'>Thank you!</p>
-                  <p style='color:white;'>You have successfully completed the experiment and your data has been saved.</p>
-                  <p style='color:white;'>To leave feedback on this task, please click the following link:</p>
-                  <p style='color:white;'><a href='${feedbackLink}'>Leave Task Feedback!</a></p>
-                  <p style='color:white;'><i>You may now close the experiment window at any time.</i></p>,`;
+                      <p>Thank you!</p>
+            <p>You have successfully completed this task and your data has been saved.</p>
+            <p>Your final score is ${score}.</p>
+            ${
+                !src_subject_id
+                    ? `<p>You will be redirected to the next part of the experiment; If you are not redirected please click <a href="${redirectLink}">here</a>.</p>`
+                    : ""
+            }`;
         break;
     case "silverstein":
         var english0 = `

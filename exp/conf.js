@@ -4,10 +4,11 @@
 
 "use strict";
 
-// COMMENT ONE OF THESE OUT
-const version = "silverstein";
+// select version of the experiment
 // const version = "original";
+const version = "silverstein";
 
+// debug mode. true will speed up the experiment
 let debug = true;
 
 const score = 1;

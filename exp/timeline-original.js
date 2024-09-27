@@ -1,25 +1,23 @@
 "use strict";
 
-console.log("Starting createOriginalTimeline function");
-
-let welcome = {
+const welcome = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: instructions[0],
 };
 
-let instructions_1 = {
+const instructions1 = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: instructions[1],
     choices: ["1", "0"],
 };
 
-let instructions_2 = {
+const instructions2 = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: instructions[2],
     choices: [" "],
 };
 
-let fixation = {
+const fixation = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: '<div style="color:white; font-size:30px;">+</div>',
     choices: "NO_KEYS",
@@ -27,7 +25,7 @@ let fixation = {
     data: { test_part: "fixation" },
 };
 
-let faces = {
+const faces = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: () => {
         return `
@@ -56,48 +54,36 @@ let faces = {
 
 // Add gender and age trials here, similar to Silverstein timeline
 
-let first_procedure = {
+const firstHalfProcedure = {
     timeline: [fixation, faces],
-    timeline_variables: full_stim_shuffle.slice(
+    timeline_variables: originalStimShuffle.slice(
         0,
-        Math.floor(full_stim_shuffle.length / 2)
+        Math.floor(originalStimShuffle.length / 2)
     ),
     repetitions: getRepetitions(),
 };
 
-let second_procedure = {
+const secondHalfProcedure = {
     timeline: [fixation, faces],
-    timeline_variables: full_stim_shuffle.slice(
-        Math.floor(full_stim_shuffle.length / 2)
+    timeline_variables: originalStimShuffle.slice(
+        Math.floor(originalStimShuffle.length / 2)
     ),
 };
 
-let breaking = {
+const halfwayBreak = {
     type: jsPsychHtmlKeyboardResponse,
     stimulus: instructions[3],
     choices: [" "],
 };
 
-let end = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: instructions[4],
-    choices: "NO_KEYS",
-};
-
-// original
-let originalTimeline = [
+const originalTimeline = [
     welcome,
-    instructions_1,
-    instructions_2,
-    first_procedure,
-    breaking,
-    second_procedure,
+    instructions1,
+    instructions2,
+    firstHalfProcedure,
+    halfwayBreak,
+    secondHalfProcedure,
     dataSave,
-    end,
 ];
 
 $.getScript("exp/main.js");
-
-// Add console.log statements for debugging
-console.log("Creating Original Timeline");
-console.log("Returning timeline:", timeline);

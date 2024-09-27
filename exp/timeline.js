@@ -8,10 +8,10 @@ const jsPsych = initJsPsych({
 const preload = {
     type: jsPsychPreload,
     images: [
-        original_stimuli,
-        inverted_stimuli,
-        catch_stimuli,
-        catch_stimuli_inverted,
+        uprightStim,
+        invertedStim,
+        scrambledStimuli,
+        scrambledInvertedStimuli,
     ],
     show_detailed_errors: true,
     on_success: function (file) {
