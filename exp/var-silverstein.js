@@ -117,7 +117,7 @@ const scrambledInvertedStimuli = scrambled.map(
 const extendFullStim = (originalStim) => {
     let silversteinStim = [];
 
-    let uprightStim = [...originalStim.slice(0, 53)];
+    let uprightStim = [...originalStim.slice(0, 43)];
 
     uprightStim.forEach((stim, i) => {
         if (i < groundTruthGender.length) {
