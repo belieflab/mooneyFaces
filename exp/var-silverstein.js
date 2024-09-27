@@ -124,18 +124,18 @@ const extendFullStim = (originalStim) => {
             // Keep the data object as is
             stim.face = {
                 ...stim.face,
-                groundTruthAge: "",
-                groundTruthGender: "",
+                ground_truth_age: "",
+                ground_truth_gender: "",
             };
 
             // Create separate age and gender objects with ground truth
             stim.age = {
                 ...stim.face,
-                groundTruthAge: groundTruthAge[i],
+                ground_truth_age: groundTruthAge[i],
             };
             stim.gender = {
                 ...stim.face,
-                groundTruthGender: groundTruthGender[i],
+                ground_truth_gender: groundTruthGender[i],
             };
         }
     });
@@ -149,18 +149,18 @@ const extendFullStim = (originalStim) => {
             // Keep the data object as is
             stim.face = {
                 ...stim.face,
-                groundTruthAge: "",
-                groundTruthGender: "",
+                ground_truth_age: "",
+                ground_truth_gender: "",
             };
 
             // Create
             stim.age = {
                 ...stim.face,
-                groundTruthAge: groundTruthAge[i],
+                ground_truth_age: groundTruthAge[i],
             };
             stim.gender = {
                 ...stim.face,
-                groundTruthGender: groundTruthGender[i],
+                ground_truth_gender: groundTruthGender[i],
             };
         }
     });
