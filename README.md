@@ -14,7 +14,8 @@ When pulling changes, run:
 ```bash
 ./sync.sh
 ```
-> 🔄 This ensures all submodules are up-to-date
+> 🔄 This ensures all submodules are up-to-date.
+> ⚠️ Pulling changes will not remove any data.
 
 ## 📊 Task Versions
 
